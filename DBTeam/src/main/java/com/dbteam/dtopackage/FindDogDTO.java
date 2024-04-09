@@ -1,4 +1,4 @@
-package com.dbteam.setting.dtopackage;
+package com.dbteam.dtopackage;
 
 public class FindDogDTO {
     private int findNum;

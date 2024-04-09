@@ -1,4 +1,4 @@
-package com.dbteam.setting.dtopackage;
+package com.dbteam.dtopackage;
 
 import java.util.Date;
 
