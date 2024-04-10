@@ -15,7 +15,7 @@ public class Application2 {     /* 실행 테스트용 */
             System.out.println("===== 유기견 프로필 관리 =====");
             //System.out.println("1. 전체 프로필 조회");
 
-            //
+            /* insert 기능 */
             System.out.println("1. 신규 프로필 추가(insert)");
 
 
@@ -25,6 +25,7 @@ public class Application2 {     /* 실행 테스트용 */
 
             switch (no){
                 //case 1: dogController.selectAllProfile(); break;
+                /* insert 기능*/
                 case 1: dogController.registDogProfile(inputDogProfile()); break;
 
                 //

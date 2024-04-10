@@ -23,7 +23,7 @@ public class DogController {
 //
 //    }
 
-    //추가
+    /* insert (추가) */
     public void registDogProfile(Map<String, String> parameter){
 
         //int dogNum = Integer.parseInt(parameter.get("dogNum"));

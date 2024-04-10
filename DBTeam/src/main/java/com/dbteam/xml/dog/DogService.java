@@ -10,8 +10,8 @@ public class DogService {
 
     private DogMapper dogMapper;
 
-    //추가
-            //강아지 프로필 추가할 수 있는 메소드
+    /* insert 기능 */
+    //강아지 프로필 추가할 수 있는 메소드
     public boolean registDogProfile(DogDTO dog){
 
         SqlSession sqlSession = getSqlession();
