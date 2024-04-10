@@ -1,4 +1,4 @@
-package com.dbteam.setting;
+package com.dbteam.common;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

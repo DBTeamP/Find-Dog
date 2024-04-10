@@ -1,4 +1,4 @@
-package com.dbteam.dtopackage;
+package com.dbteam.common.dtopackage;
 
 public class VolPDTO {
     private int userNum;

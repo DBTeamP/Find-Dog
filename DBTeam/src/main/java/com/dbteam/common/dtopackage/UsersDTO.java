@@ -1,4 +1,4 @@
-package com.dbteam.dtopackage;
+package com.dbteam.common.dtopackage;
 
 public class UsersDTO {
     private int userNum;
