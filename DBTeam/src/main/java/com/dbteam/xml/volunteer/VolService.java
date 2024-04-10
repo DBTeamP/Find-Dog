@@ -1,0 +1,45 @@
+package com.dbteam.xml.volunteer;
+
+import com.dbteam.common.dtopackage.VolDTO;
+import org.apache.ibatis.session.SqlSession;
+
+import static com.dbteam.common.Template.getSqlession;
+
+public class VolService {
+
+    private VolMapper volMapper;
+
+    public boolean deleteVol(int num){
+        SqlSession sqlSession = getSqlession();
+
+
+        volMapper = sqlSession.getMapper(VolMapper.class);
+        int result = volMapper.deleteVol(num);
+
+        if(result > 0){
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0? true : false;
+    }
+
+    public boolean registVol(VolDTO vol){
+        SqlSession sqlSession = getSqlession();
+
+        volMapper = sqlSession.getMapper(VolMapper.class);
+        int result = volMapper.insertVol(vol);
+
+        if(result > 0){
+            sqlSession.commit();
+        } else{
+            sqlSession.rollback();
+        }
+        sqlSession.close();
+        System.out.println(result);
+        return result > 0 ? true : false;
+    }
+}

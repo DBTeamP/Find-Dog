@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbteam.xml.volunteer.VolMapper">
+    <resultMap id="volResultMap" type="com.dbteam.common.dtopackage.VolDTO">
+        <id property="volNum" column="vol_num"/>
+        <result property="volName" column="vol_name"/>
+        <result property="volTxt" column="vol_txt"/>
+        <result property="volDate" column="vol_date"/>
+        <result property="regionNum" column="region_num"/>
+        <result property="managerNum" column="manager_num"/>
+    </resultMap>
+
+    <delete
+            id="deleteVol" parameterType="com.dbteam.common.dtopackage.VolDTO">
+        DELETE
+        FROM volunteer
+        WHERE vol_num = #{ code }
+    </delete>
+
+    <insert id="insertVol" parameterType="com.dbteam.common.dtopackage.VolDTO">
+        INSERT INTO volunteer(
+            vol_name
+            , vol_txt
+            , vol_date
+            , region_num
+            , manager_num
+        )
+        VALUES(
+            #{ volName }
+            , #{ volTxt }
+            , #{ volDate }
+            , #{ regionNum }
+            , #{ managerNum }
+        )
+    </insert>
+</mapper>
