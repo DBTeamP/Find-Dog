@@ -3,7 +3,7 @@ package com.dbteam.xml;
 public class PrintResult {
 
 
-    public void printSuccessMessage(String successCode) {
+     public void printSuccessMessage(String successCode) {
         String successMessage = "";
 
         switch (successCode){
