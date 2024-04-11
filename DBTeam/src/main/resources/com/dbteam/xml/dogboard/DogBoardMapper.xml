@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dbteam.xml.dogboard.DogBoardMapper">
+
+    <!-- resultMap-->
+    <!-- dogBoardNum, dogBoardName, dogBoardTxt, dogNum, regionNum, managerNum -->
+    <resultMap id="dogBoardResultMap" type="com.dbteam.common.dtopackage.DogBoardDTO">
+        <id property="dogBoardNum" column="dog_board_num"/>
+        <result property="dogBoardName" column="dog_board_name"/>
+        <result property="dogBoardTxt" column="dog_board_txt"/>
+        <result property="dogNum" column="dog_num"/>
+        <result property="regionNum" column="region_num"/>
+        <result property="managerNum" column="manager_num"/>
+    </resultMap>
+
+    <!-- 조회 -->
+
+    <!-- 추가 -->
+    <insert id="insertDogBoard" parameterType="com.dbteam.common.dtopackage.DogBoardDTO">
+        INSERT INTO dog_board(
+            dog_board_name
+            , dog_board_txt
+            , dog_num
+            , region_num
+            , manager_num
+        )
+        VALUES (
+            #{ dogBoardName }
+            , #{ dogBoardTxt }
+            , #{ dogNum }
+            , #{ regionNum }
+            , #{ managerNum }
+        )
+    </insert>
+
+    <!-- 수정 -->
+
+    <!-- 삭제 -->
+    <delete id="deleteDogBoard" parameterType="_int">
+        DELETE
+        FROM dog_board
+        WHERE dog_board_num = #{ dogBoardNum }
+    </delete>
+
+
+</mapper>
