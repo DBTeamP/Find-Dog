@@ -22,11 +22,11 @@ public class AdoptionService {
         }
         sqlSession.close();
 
-        return result > 0 ? true : false;
+        return result > 0;
     }
 
     private static SqlSession getSqlession() {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = null;
         return sqlSession;
     }
 
