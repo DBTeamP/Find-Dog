@@ -10,8 +10,9 @@ public class DogService {
 
     private DogMapper dogMapper;
 
-    /* insert 기능 */
-    //강아지 프로필 추가할 수 있는 메소드
+    /* 조회 */
+
+    /* 추가 */     /*강아지 프로필 추가할 수 있는 메소드*/
     public boolean registDogProfile(DogDTO dog){
 
         SqlSession sqlSession = getSqlession();
@@ -29,9 +30,27 @@ public class DogService {
 
         return result > 0 ? true : false;
 
-
-
     }
 
+    /* 수정 */
+
+    /* 삭제 */
+    public boolean deleteDogProfile(int dogNum) {
+        SqlSession sqlSession = getSqlession();
+
+        dogMapper = sqlSession.getMapper(DogMapper.class);
+        int result = dogMapper.deleteDogProfile(dogNum);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0? true : false;
+
+    }
 
 }
