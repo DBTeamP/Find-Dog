@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dbteam.xml.finddog.FindDogMapper">
+
+    <!-- findNum, findName, findTxt, userNum, regionNum -->
+    <resultMap id="findDogBoardResultMap" type="com.dbteam.common.dtopackage.FindDogDTO">
+        <id property="findNum" column="find_num"/>
+        <result property="findName" column="find_name"/>
+        <result property="findTxt" column="find_txt"/>
+        <result property="userNum" column="user_num"/>
+        <result property="regionNum" column="region_num"/>
+    </resultMap>
+
+    <!-- 조회 -->
+
+    <!-- 추가 -->
+    <insert id="insertFindDogBoard" parameterType="com.dbteam.common.dtopackage.FindDogDTO">
+        INSERT INTO find_dog (
+            find_name
+            , find_txt
+            , user_num
+            , region_num
+        )
+        VALUES (
+            #{ findName }
+            , #{ findTxt }
+            , #{ userNum }
+            , #{ regionNum }
+        )
+    </insert>
+
+    <!-- 수정 -->
+
+    <!-- 삭제 -->
+    <delete id="deleteFindDogBoard" parameterType="_int">
+        DELETE
+        FROM find_dog
+        WHERE find_num = #{ findNum }
+    </delete>
+
+</mapper>
