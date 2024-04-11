@@ -40,7 +40,7 @@ public class Application2 {     /* 실행 테스트용 */
                 /* 삭제 (delete) */
                 case 2: dogController.deleteDogProfile(inputDogCode()); break;
 
-                //
+                /* 종료 */
                 case 9: System.out.println("유기견 프로필 관리 프로그램을 종료합니다."); return;
                 default: System.out.println("잘못된 관리 번호입니다."); break;
             }
@@ -77,7 +77,7 @@ public class Application2 {     /* 실행 테스트용 */
         System.out.print("강아지의 지역번호를 입력하세요 : ");
         String regionNum = sc.nextLine();
         System.out.print("강아지의 관리자번호를 입력하세요 : ");
-        String managerNum = sc.next();
+        String managerNum = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("dogName", dogName);
