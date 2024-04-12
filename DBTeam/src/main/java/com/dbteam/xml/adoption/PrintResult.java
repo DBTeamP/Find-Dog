@@ -1,4 +1,4 @@
-package com.xml;
+package com.dbteam.xml.adoption;
 
 public class PrintResult {
 

@@ -1,4 +1,4 @@
-package com.xml;
+package com.dbteam.xml.adoption;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,8 +22,8 @@ public class Application2 {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1: AdoptionController.registAdoption(inputAdoption()); break;
-                // case 2: AdoptionController.deleteAdoption(inputAdoption()); break;
+                case 1: adoptionController.registAdoption(inputAdoption()); break;
+                case 2: adoptionController.deleteAdoption(inputAdoptionCode()); break;
                 case 9: System.out.println("입양 일지 프로그램을 종료합니다."); return;
                 default: System.out.println("잘못된 관리 번호입니다."); break;
 
@@ -31,6 +31,8 @@ public class Application2 {
         } while (true);
 
     }
+
+    //추가
     private static Map<String, String> inputAdoption() {
         Scanner sc = new Scanner(System.in);
         System.out.print("일지 제목을 입력하세요 : ");
@@ -39,26 +41,35 @@ public class Application2 {
         String adoptionTxt = sc.nextLine();
         System.out.print("유저 번호를 입력하세요 : ");
         String userNum = sc.nextLine();
-        System.out.print("지역 번호를 입력하세요 : ");
-        String regionNum = sc.nextLine();
 
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> parameter = new HashMap<>();
         parameter.put("adoptionName", adoptionName);
         parameter.put("adoptionTxt", adoptionTxt);
         parameter.put("userNum", userNum);
-        parameter.put("regionNum", regionNum);
 
         return parameter;
     }
 
-    private static Map<String, String> parameter = new HashMap<>();
+    //삭제
+    private static Map<String,String> inputAdoptionCode() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("입양일지 번호를 입력하세요 : ");
+        String adoptionNum = sc.nextLine();
 
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("adoptionNum", adoptionNum);
 
-
-
-
+        return parameter;
 
     }
+
+
+
+
+
+
+
+}
 
 
 /*public class AdoptionDTO {
