@@ -11,7 +11,7 @@ public class testRun {
 
     private static void welComeDog() {
         Scanner sc = new Scanner(System.in);
-        LogInController logInController = new LogInController(); // LogInController 객체 생성
+        LogInController logInController = new LogInController(); 
         do {
             System.out.println("====== FINDING DOG =======");
             System.out.println("1. 회원가입");
@@ -22,10 +22,10 @@ public class testRun {
             int no = sc.nextInt();
             switch (no) {
                 case 1:
-                    logInController.registId(insertUser(sc)); // LogInController 객체를 insertUser 메서드에 전달
+                    logInController.registId(insertUser(sc));
                     break;
                 case 2:
-                    logInPage(sc, logInController); // LogInController 객체를 logInPage 메서드에 전달
+                    logInPage(sc, logInController);
                     break;
                 case 3:
                     return;
@@ -62,7 +62,7 @@ public class testRun {
             case 1:
                 break;
             case 2:
-                logIn(sc, logInController); // LogInController 객체를 logIn 메서드에 전달
+                logIn(sc, logInController); 
                 break;
             case 3:
                 return;
