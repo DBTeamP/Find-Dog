@@ -8,8 +8,10 @@ public class testRun {
     public static void main(String[] args) {
         welComeDog();
     }
-    private static void welComeDog(){
+
+    private static void welComeDog() {
         Scanner sc = new Scanner(System.in);
+        LogInController logInController = new LogInController(); // LogInController 객체 생성
         do {
             System.out.println("====== FINDING DOG =======");
             System.out.println("1. 회원가입");
@@ -19,15 +21,37 @@ public class testRun {
 
             int no = sc.nextInt();
             switch (no) {
-                case 1: break;
-                case 2: logInPage(); break;
-                case 3: return;
+                case 1:
+                    logInController.registId(insertUser(sc)); // LogInController 객체를 insertUser 메서드에 전달
+                    break;
+                case 2:
+                    logInPage(sc, logInController); // LogInController 객체를 logInPage 메서드에 전달
+                    break;
+                case 3:
+                    return;
             }
-        }while(true);
+        } while (true);
     }
 
-    private static void logInPage(){
-        Scanner sc = new Scanner(System.in);
+    private static Map<String, String> insertUser(Scanner sc) {
+        System.out.print("아이디를 입력해주세요: ");
+        String userId = sc.next();
+        System.out.print("이름을 입력해주세요: ");
+        String userName = sc.next();
+        System.out.print("전화번호를 입력해주세요: ");
+        String userPhone = sc.next();
+        System.out.print("지역번호를 입력해주세요: ");
+        int regionNum = sc.nextInt();
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("userId", userId);
+        parameter.put("userName", userName);
+        parameter.put("userPhone", userPhone);
+        parameter.put("regionNum", String.valueOf(regionNum));
+
+        return parameter;
+    }
+
+    private static void logInPage(Scanner sc, LogInController logInController) {
         System.out.println("====== LOGIN ======");
         System.out.println("1. 보호 단체 로그인");
         System.out.println("2. 일반 유저 로그인");
@@ -35,12 +59,27 @@ public class testRun {
         System.out.print("번호를 입력해주세요 : ");
         int no = sc.nextInt();
         switch (no) {
-            case 1: pageAdminMain(); break;
-            case 2: pageUserMain(); break;
-            case 3: return;
+            case 1:
+                break;
+            case 2:
+                logIn(sc, logInController); // LogInController 객체를 logIn 메서드에 전달
+                break;
+            case 3:
+                return;
         }
     }
-    private static void pageUserMain(){
+
+    private static void logIn(Scanner sc, LogInController logInController) {
+        System.out.println("아이디를 입력해주세요: ");
+        String userId = sc.next();
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("userId", userId);
+        logInController.logIn(parameter);
+    }
+
+
+
+    static void pageUserMain(){
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("======= FINDING DOG MAIN =======");
@@ -95,7 +134,7 @@ public class testRun {
         }while(true);
     }
 
-    private static void pageAdminMain(){
+    static void pageAdminMain(){
         Scanner sc = new Scanner(System.in);
         do{
             System.out.println("======= FINDING GROUP MAIN =======");
