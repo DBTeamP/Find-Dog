@@ -8,10 +8,10 @@ public class PrintResult {
 
         switch (successCode) {
             case "insert":
-                successMessage = "신규 봉사 회원이 등록 완료되었습니다 .";
+                successMessage = "봉사 일정 등록 완료되었습니다 .";
                 break;
             case "delete":
-                successMessage = "회원 삭제를 완료했습니다 .";
+                successMessage = "봉사 일정 삭제를 완료했습니다 .";
                 break;
         }
         System.out.println(successMessage);

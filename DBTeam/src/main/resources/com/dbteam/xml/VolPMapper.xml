@@ -42,7 +42,7 @@
             v.vol_name as "volName",
             COUNT(vp.vol_num) AS "volCount"
         FROM
-                 volunteer_person vp
+            volunteer_person vp
         JOIN
             volunteer v ON v.vol_num = vp.vol_num
         GROUP BY
