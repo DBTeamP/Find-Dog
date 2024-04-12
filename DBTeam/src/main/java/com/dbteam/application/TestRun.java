@@ -17,7 +17,10 @@ public class TestRun {
         do {
             System.out.println("====봉사 관리=====");
             System.out.println("1. 봉사 일정 추가 ");
-            System.out.println("2. 봉사 일정 삭제");
+            System.out.println("2. 봉사 게시글 보기 ");
+            System.out.println("3. 봉사 일정 삭제");
+            System.out.println("4. 각 봉사활동 신청 인원 수 체크 ");
+            System.out.println(" ");
             System.out.println("=============");
             int no = sc.nextInt();
 
@@ -25,8 +28,13 @@ public class TestRun {
                 case 1:
                     volPController.insertVolP(inputVolP());
                     break;
-                case 2:
+
+                case 3:
                     volPController.deleteVolP(inputVolPcode());
+                    break;
+
+                case 4:
+                    volPController.selectVolP(inputVolPcode());
                     break;
             }
 
@@ -42,14 +50,12 @@ public class TestRun {
         String userNum = sc.nextLine();
         System.out.print("봉사 번호를 입력하세요 : ");
         String volNum = sc.nextLine();
-        System.out.print("지역 번호를 입력하세요 : ");
-        String userRegionNum = sc.nextLine();
 
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("userNum", userNum);
         parameter.put("volNum", volNum);
-        parameter.put("userRegionNum", userRegionNum);
+
 
         return parameter;
     }

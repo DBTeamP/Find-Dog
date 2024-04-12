@@ -1,23 +1,21 @@
+
 package com.dbteam.common.dtopackage;
 
+// regionNum & managerNum 삭제
 public class DogBoardDTO {
     private int dogBoardNum;
     private String dogBoardName;
     private String dogBoardTxt;
     private int dogNum;
-    private int regionNum;
-    private int managerNum;
 
     public DogBoardDTO() {
     }
 
-    public DogBoardDTO(int dogBoardNum, String dogBoardName, String dogBoardTxt, int dogNum, int regionNum, int managerNum) {
+    public DogBoardDTO(int dogBoardNum, String dogBoardName, String dogBoardTxt, int dogNum) {
         this.dogBoardNum = dogBoardNum;
         this.dogBoardName = dogBoardName;
         this.dogBoardTxt = dogBoardTxt;
         this.dogNum = dogNum;
-        this.regionNum = regionNum;
-        this.managerNum = managerNum;
     }
 
     public int getDogBoardNum() {
@@ -52,22 +50,6 @@ public class DogBoardDTO {
         this.dogNum = dogNum;
     }
 
-    public int getRegionNum() {
-        return regionNum;
-    }
-
-    public void setRegionNum(int regionNum) {
-        this.regionNum = regionNum;
-    }
-
-    public int getManagerNum() {
-        return managerNum;
-    }
-
-    public void setManagerNum(int managerNum) {
-        this.managerNum = managerNum;
-    }
-
     @Override
     public String toString() {
         return "DogBoardDTO{" +
@@ -75,8 +57,6 @@ public class DogBoardDTO {
                 ", dogBoardName='" + dogBoardName + '\'' +
                 ", dogBoardTxt='" + dogBoardTxt + '\'' +
                 ", dogNum=" + dogNum +
-                ", regionNum=" + regionNum +
-                ", managerNum=" + managerNum +
                 '}';
     }
 }

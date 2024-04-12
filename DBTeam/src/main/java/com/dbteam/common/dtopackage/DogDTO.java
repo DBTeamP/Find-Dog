@@ -1,23 +1,24 @@
+
 package com.dbteam.common.dtopackage;
 
+// regionNum & managerNum 삭제
+// adminNum(userNum의 외래키) 추가
 public class DogDTO {
     private int dogNum;
     private String dogName;
     private String dogKind;
     private int dogAge;
-    private int regionNum;
-    private int managerNum;
+    private int adminNum;
 
     public DogDTO() {
     }
 
-    public DogDTO(int dogNum, String dogName, String dogKind, int dogAge, int regionNum, int managerNum) {
+    public DogDTO(int dogNum, String dogName, String dogKind, int dogAge, int adminNum) {
         this.dogNum = dogNum;
         this.dogName = dogName;
         this.dogKind = dogKind;
         this.dogAge = dogAge;
-        this.regionNum = regionNum;
-        this.managerNum = managerNum;
+        this.adminNum = adminNum;
     }
 
     public int getDogNum() {
@@ -52,20 +53,12 @@ public class DogDTO {
         this.dogAge = dogAge;
     }
 
-    public int getRegionNum() {
-        return regionNum;
+    public int getAdminNum() {
+        return adminNum;
     }
 
-    public void setRegionNum(int regionNum) {
-        this.regionNum = regionNum;
-    }
-
-    public int getManagerNum() {
-        return managerNum;
-    }
-
-    public void setManagerNum(int managerNum) {
-        this.managerNum = managerNum;
+    public void setAdminNum(int adminNum) {
+        this.adminNum = adminNum;
     }
 
     @Override
@@ -75,8 +68,7 @@ public class DogDTO {
                 ", dogName='" + dogName + '\'' +
                 ", dogKind='" + dogKind + '\'' +
                 ", dogAge=" + dogAge +
-                ", regionNum=" + regionNum +
-                ", managerNum=" + managerNum +
+                ", adminNum=" + adminNum +
                 '}';
     }
 }

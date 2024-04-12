@@ -1,24 +1,24 @@
+
 package com.dbteam.common.dtopackage;
 
 import java.util.Date;
 
+// regionNum삭제
 public class VolDTO {
     private int volNum;
     private String volName;
     private String volTxt;
     private java.util.Date volDate;
-    private int regionNum;
     private int managerNum;
 
     public VolDTO() {
     }
 
-    public VolDTO(int volNum, String volName, String volTxt, Date volDate, int regionNum, int managerNum) {
+    public VolDTO(int volNum, String volName, String volTxt, Date volDate, int managerNum) {
         this.volNum = volNum;
         this.volName = volName;
         this.volTxt = volTxt;
         this.volDate = volDate;
-        this.regionNum = regionNum;
         this.managerNum = managerNum;
     }
 
@@ -54,14 +54,6 @@ public class VolDTO {
         this.volDate = volDate;
     }
 
-    public int getRegionNum() {
-        return regionNum;
-    }
-
-    public void setRegionNum(int regionNum) {
-        this.regionNum = regionNum;
-    }
-
     public int getManagerNum() {
         return managerNum;
     }
@@ -77,7 +69,6 @@ public class VolDTO {
                 ", volName='" + volName + '\'' +
                 ", volTxt='" + volTxt + '\'' +
                 ", volDate=" + volDate +
-                ", regionNum=" + regionNum +
                 ", managerNum=" + managerNum +
                 '}';
     }

@@ -11,7 +11,11 @@
         <result property="userRegionNum" column="region_num"/>
     </resultMap>
 
-
+    <resultMap id="CountDTOResultMap" type="com.dbteam.common.dtopackage.CountDTO">
+        <result property="volNum" column="volNum"/>
+        <result property="volName" column="volName"/>
+        <result property="volCount" column="volCount"/>
+    </resultMap>
 
 
 
@@ -19,12 +23,10 @@
         INSERT INTO volunteer_person(
              user_num
             ,vol_num
-            ,region_num
         )
         VALUES(
          #{ userNum }
         ,#{ volNum }
-        ,#{ userRegionNum }
         )
     </insert>
 
@@ -34,4 +36,17 @@
         WHERE user_num = #{ userNum } AND vol_num = #{volNum}
 
     </delete>
+    
+    <select id="selectVolP" resultMap="CountDTOResultMap">
+        SELECT
+            v.vol_name as "volName",
+            COUNT(vp.vol_num) AS "volCount"
+        FROM
+                 volunteer_person vp
+        JOIN
+            volunteer v ON v.vol_num = vp.vol_num
+        GROUP BY
+            vp.vol_num, v.vol_name;
+    </select>
 </mapper>
+
