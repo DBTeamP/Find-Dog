@@ -1,5 +1,9 @@
 package com.dbteam.xml.adoption;
 
+import com.dbteam.common.dtopackage.AdoptionDTO;
+
+import java.util.List;
+
 public class PrintResult {
 
     public void printSuccessMessage(String successCode) {
@@ -24,5 +28,14 @@ public class PrintResult {
         System.out.println(errorMessage);
     }
 
+
+    public void printAdoptionList(List<AdoptionDTO> adoptionList) {
+        System.out.println("============ 전체 입양일지 리스트 ==============");
+
+        for (AdoptionDTO adoption : adoptionList) {
+            System.out.println(adoption);
+        }
+
+    }
 }
 

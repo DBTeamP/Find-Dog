@@ -30,4 +30,13 @@
         FROM adoption
         WHERE adoption_num = #{ adoptionNum }
     </delete>
+
+    <select id="selectAllMenu" resultMap="adoptionResultMap">
+        SELECT adoption_num
+              ,adoption_name
+              ,adoption_txt
+              ,user_num
+        FROM adoption
+
+    </select>
 </mapper>

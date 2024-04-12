@@ -2,6 +2,7 @@ package com.dbteam.xml.adoption;
 
 import com.dbteam.common.dtopackage.AdoptionDTO;
 
+import java.util.List;
 import java.util.Map;
 
 public class AdoptionController {
@@ -42,5 +43,19 @@ public class AdoptionController {
         } else {
             printResult.printErrorMessage("delete");
         }
+    }
+
+    // 조회
+    public void selectAllMenu() {
+
+        List<AdoptionDTO> adoptionList = adoptionService.selectAllMenu();
+
+        if(adoptionList != null ){
+            printResult.printAdoptionList(adoptionList);
+        } else {
+            printResult.printErrorMessage("selectList");
+        }
+
+
     }
 }

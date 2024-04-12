@@ -14,16 +14,18 @@ public class Application2 {
 
         do {
             System.out.println("================= 입양 일지 ==================");
-            System.out.println("1. 입양일지 추가 ");
-            System.out.println("2. 입양일지 삭제 ");
+            System.out.println("1. 입양일지 전체 조회");
+            System.out.println("2. 입양일지 추가 ");
+            System.out.println("3. 입양일지 삭제 ");
             System.out.println("9. 프로그램 종료");
             System.out.println("============================================");
             System.out.println("수행할 관리 번호를 입력하세요 : ");
             int no = sc.nextInt();
 
             switch (no) {
-                case 1: adoptionController.registAdoption(inputAdoption()); break;
-                case 2: adoptionController.deleteAdoption(inputAdoptionCode()); break;
+                case 1: adoptionController.selectAllMenu(); break;
+                case 2: adoptionController.registAdoption(inputAdoption()); break;
+                case 3: adoptionController.deleteAdoption(inputAdoptionCode()); break;
                 case 9: System.out.println("입양 일지 프로그램을 종료합니다."); return;
                 default: System.out.println("잘못된 관리 번호입니다."); break;
 

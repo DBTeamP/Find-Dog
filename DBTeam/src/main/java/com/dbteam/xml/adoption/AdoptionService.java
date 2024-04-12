@@ -3,6 +3,8 @@ package com.dbteam.xml.adoption;
 import com.dbteam.common.dtopackage.AdoptionDTO;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 import static com.dbteam.common.Template.getSqlession;
 
 public class AdoptionService {
@@ -68,6 +70,22 @@ public class AdoptionService {
 
         return result > 0 ? true : false;
     }
+
+    //조회
+    public List<AdoptionDTO> selectAllMenu() {
+
+        SqlSession sqlSession = getSqlession();
+
+        adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
+        List<AdoptionDTO> adoptionList = adoptionMapper.selectAllMenu();
+
+        sqlSession.close();
+
+        return adoptionList;
+    }
+
+
+
 }
 
 
