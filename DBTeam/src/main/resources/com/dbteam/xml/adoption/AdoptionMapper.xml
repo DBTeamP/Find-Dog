@@ -39,4 +39,21 @@
         FROM adoption
 
     </select>
+
+    <select id="SearchAdoption" parameterType="SearchCriteria" resultMap="adoptionResultMap">
+        SELECT a.adoption_num
+              ,a.adoption_name
+              ,a.adoption_txt
+              ,a.user_num
+        FROM adoption a
+        <if test="condition == 'name'">
+            WHERE a.adoption_name LIKE CONCAT('%', #{ value }, '%')
+        </if>
+        <if test="condition == 'user'">
+            WHERE a.user_num = #{ value }
+        </if>
+    </select>
+
+
+
 </mapper>

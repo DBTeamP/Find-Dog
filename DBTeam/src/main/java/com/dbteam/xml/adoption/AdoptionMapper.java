@@ -12,4 +12,6 @@ public interface AdoptionMapper {
     int deleteAdoption(int adoptionNum);
 
     List<AdoptionDTO> selectAllMenu();
+
+    List<AdoptionDTO> searchAdoption(SearchCriteria searchCriteria);
 }

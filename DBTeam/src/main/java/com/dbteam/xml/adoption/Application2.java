@@ -11,12 +11,14 @@ public class Application2 {
 
         Scanner sc = new Scanner(System.in);
         AdoptionController adoptionController = new AdoptionController();
+        AdoptionService adoptionService = new AdoptionService();
 
         do {
             System.out.println("================= 입양 일지 ==================");
             System.out.println("1. 입양일지 전체 조회");
             System.out.println("2. 입양일지 추가 ");
             System.out.println("3. 입양일지 삭제 ");
+            System.out.println("4. 입양일지 검색");
             System.out.println("9. 프로그램 종료");
             System.out.println("============================================");
             System.out.println("수행할 관리 번호를 입력하세요 : ");
@@ -26,6 +28,7 @@ public class Application2 {
                 case 1: adoptionController.selectAllMenu(); break;
                 case 2: adoptionController.registAdoption(inputAdoption()); break;
                 case 3: adoptionController.deleteAdoption(inputAdoptionCode()); break;
+                case 4: adoptionService.searchAdoption(inputSearchCriteria()); break;
                 case 9: System.out.println("입양 일지 프로그램을 종료합니다."); return;
                 default: System.out.println("잘못된 관리 번호입니다."); break;
 
@@ -65,9 +68,16 @@ public class Application2 {
 
     }
 
+    //검색
+    private static SearchCriteria inputSearchCriteria() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("검색 기준을 입력하세요 : ");
+        String condition = sc.nextLine();
+        System.out.println("검색어를 입력하세요 : ");
+        String value = sc.nextLine();
 
-
-
+        return new SearchCriteria(condition, value);
+    }
 
 
 
@@ -79,6 +89,5 @@ public class Application2 {
     private String adoptionName;
     private String adoptionTxt;
     private int userNum;
-    private int regionNum;
 
 */
