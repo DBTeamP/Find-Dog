@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbteam.xml.VolPMapper">
+
+
+    <resultMap id="volPResultMap" type="com.dbteam.common.dtopackage.VolPDTO">
+        <id property="userNum" column="user_num"/>
+        <id property="volNum" column="vol_num"/>
+        <result property="userRegionNum" column="region_num"/>
+    </resultMap>
+
+    <resultMap id="CountDTOResultMap" type="com.dbteam.common.dtopackage.CountDTO">
+        <result property="volNum" column="volNum"/>
+        <result property="volName" column="volName"/>
+        <result property="volCount" column="volCount"/>
+    </resultMap>
+
+
+
+    <insert id="insertVolP" parameterType="com.dbteam.common.dtopackage.VolPDTO">
+        INSERT INTO volunteer_person(
+             user_num
+            ,vol_num
+        )
+        VALUES(
+         #{ userNum }
+        ,#{ volNum }
+        )
+    </insert>
+
+    <delete id="deleteVolP" parameterType="com.dbteam.common.dtopackage.VolPDTO">
+        DELETE
+        FROM volunteer_person
+        WHERE user_num = #{ userNum } AND vol_num = #{volNum}
+
+    </delete>
+    
+    <select id="selectVolP" resultMap="CountDTOResultMap">
+        SELECT
+            v.vol_name as "volName",
+            COUNT(vp.vol_num) AS "volCount"
+        FROM
+                 volunteer_person vp
+        JOIN
+            volunteer v ON v.vol_num = vp.vol_num
+        GROUP BY
+            vp.vol_num, v.vol_name;
+    </select>
+</mapper>
+
