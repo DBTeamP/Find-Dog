@@ -17,4 +17,7 @@ public interface DogMapper {
     /* 삭제 */
     int deleteDogProfile(int dogNum);
 
+    /* 검색*/
+    List<DogDTO> searchDogKind(SearchDogKind searchDogKind);
+
 }
