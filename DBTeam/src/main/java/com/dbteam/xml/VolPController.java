@@ -3,6 +3,7 @@ package com.dbteam.xml;
 import com.dbteam.common.dtopackage.CountDTO;
 import com.dbteam.common.dtopackage.VolPDTO;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -49,12 +50,18 @@ public class VolPController {
 
     public void selectVolP(Map<String, String> parameter) {
             String volName = parameter.get("volName");
-        List<CountDTO> result = volPService.selectVolP(volName);
 
-        if (result != null && !result.isEmpty()) {
-            for (CountDTO dto : result)
-            printResult.printSuccesscount("select",  dto);
-        }else {
+        List<String> volNameList = Arrays.asList(volName.split(",\\s*")); // 쉼표보 봉사활동 명 분리
+        boolean found = false;
+        // 각 봉사활동 이름에 대해 조회
+        List<CountDTO> results = volPService.selectVolP(volNameList);
+
+        if (results != null && !results.isEmpty()) {
+            for (CountDTO result : results)
+                printResult.printSuccesscount("select",  result);
+                found = true;
+
+        }if (!found) {
             System.out.println("조회 결과가 없습니다. 올바른 봉사활동 이름을 입력해주세요.");
         }
     }

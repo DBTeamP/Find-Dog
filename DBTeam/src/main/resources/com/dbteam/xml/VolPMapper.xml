@@ -37,7 +37,7 @@
 
     </delete>
     
-    <select id="selectVolP" resultMap="CountDTOResultMap">
+    <select id="selectVolP" parameterType="map" resultMap="CountDTOResultMap">
         SELECT
             v.vol_name as "volName",
             COUNT(vp.vol_num) AS "volCount"
@@ -45,9 +45,13 @@
             volunteer_person vp
         JOIN
             volunteer v ON v.vol_num = vp.vol_num
-        WHERE vol_name = #{ volName}
+        WHERE
+        v.vol_name IN
+        <foreach item="item" collection="volNameList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         GROUP BY
-             v.vol_name;
+             v.vol_name
     </select>
 </mapper>
 

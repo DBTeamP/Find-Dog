@@ -14,5 +14,5 @@ public interface VolPMapper {
     int deleteVolP(VolPDTO num);
 
 
-    List<CountDTO> selectVolP(@Param("volName") String volName);
+    List<CountDTO> selectVolP(@Param("volNameList") List<String> volNameList);
 }

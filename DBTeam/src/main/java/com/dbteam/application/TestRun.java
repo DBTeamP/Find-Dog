@@ -19,6 +19,7 @@ public class TestRun {
             System.out.println("1. 봉사 일정 추가 ");
             System.out.println("2. 봉사 일정 삭제");
             System.out.println("3. 각 봉사활동 신청 인원 수 체크 ");
+            System.out.println("9. 프로그램 종료");
             System.out.println(" ");
             System.out.println("=============");
             int no = sc.nextInt();
@@ -35,6 +36,10 @@ public class TestRun {
                 case 3:
                     volPController.selectVolP(inputVolName());
                     break;
+
+                case 9:
+                    System.out.println("봉사활동 관리 프로그램을 종료합니다."); return;
+                default: System.out.println("잘못된 관리 번호입니다."); break;
             }
 
         } while (true);

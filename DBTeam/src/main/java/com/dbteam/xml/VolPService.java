@@ -4,7 +4,10 @@ import com.dbteam.common.dtopackage.CountDTO;
 import com.dbteam.common.dtopackage.VolPDTO;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import static com.dbteam.common.Template.getSqlession;
 
@@ -48,12 +51,14 @@ public class VolPService {
     }
 
 
-    public List<CountDTO> selectVolP(String volName) {
+    public List<CountDTO> selectVolP(List<String> volNameList) {
         SqlSession sqlSession = getSqlession();
         try {
             VolPMapper volPMapper = sqlSession.getMapper(VolPMapper.class);
-            List<CountDTO> result = volPMapper.selectVolP(volName);
-            return result;
+            Map<String, Object>params = new HashMap<>();
+            params.put("volNameList", volNameList);
+            List<CountDTO> results = volPMapper.selectVolP(volNameList);
+            return results;
         } finally {
             if (sqlSession != null) {
                 sqlSession.close();
