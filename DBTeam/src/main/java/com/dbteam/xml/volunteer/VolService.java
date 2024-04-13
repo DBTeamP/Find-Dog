@@ -3,6 +3,8 @@ package com.dbteam.xml.volunteer;
 import com.dbteam.common.dtopackage.VolDTO;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 import static com.dbteam.common.Template.getSqlession;
 
 public class VolService {
@@ -41,5 +43,27 @@ public class VolService {
         sqlSession.close();
         System.out.println(result);
         return result > 0 ? true : false;
+    }
+
+    public List<VolDTO> selectVolByTxt(String volTxt) {
+        SqlSession sqlSession = getSqlession();
+
+        volMapper = sqlSession.getMapper(VolMapper.class);
+        List<VolDTO> selectVolList = volMapper.selectVolByTxt(volTxt);
+
+        sqlSession.close();
+
+        return selectVolList;
+    }
+
+    public List<VolDTO> selectAllVol() {
+        SqlSession sqlSession = getSqlession();
+
+        volMapper = sqlSession.getMapper(VolMapper.class);
+        List<VolDTO> volList = volMapper.selectAllVol();
+
+        sqlSession.close();
+
+        return volList;
     }
 }

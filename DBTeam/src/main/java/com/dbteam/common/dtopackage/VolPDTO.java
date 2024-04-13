@@ -1,17 +1,16 @@
 package com.dbteam.common.dtopackage;
 
+//userRegionNum 삭제
 public class VolPDTO {
     private int userNum;
     private int volNum;
-    private int UserRegionNum;
 
     public VolPDTO() {
     }
 
-    public VolPDTO(int userNum, int volNum, int userRegionNum) {
+    public VolPDTO(int userNum, int volNum) {
         this.userNum = userNum;
         this.volNum = volNum;
-        UserRegionNum = userRegionNum;
     }
 
     public int getUserNum() {
@@ -30,20 +29,11 @@ public class VolPDTO {
         this.volNum = volNum;
     }
 
-    public int getUserRegionNum() {
-        return UserRegionNum;
-    }
-
-    public void setUserRegionNum(int userRegionNum) {
-        UserRegionNum = userRegionNum;
-    }
-
     @Override
     public String toString() {
         return "VolPDTO{" +
                 "userNum=" + userNum +
                 ", volNum=" + volNum +
-                ", UserRegionNum=" + UserRegionNum +
                 '}';
     }
 }

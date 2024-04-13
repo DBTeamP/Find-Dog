@@ -8,8 +8,16 @@
         <result property="volName" column="vol_name"/>
         <result property="volTxt" column="vol_txt"/>
         <result property="volDate" column="vol_date"/>
-        <result property="regionNum" column="region_num"/>
         <result property="managerNum" column="manager_num"/>
+    </resultMap>
+
+    <resultMap id="checkAdmin" type="com.dbteam.common.dtopackage.UsersDTO">
+        <id property = "userNum" column="user_num"/>
+        <result property="userName" column="user_name"/>
+        <result property="userId" column="user_ud"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="regionNum" column="region_num"/>
+        <result property="adminRights" column="admin_rights"/>
     </resultMap>
 
     <delete
@@ -24,15 +32,44 @@
             vol_name
             , vol_txt
             , vol_date
-            , region_num
             , manager_num
         )
         VALUES(
             #{ volName }
             , #{ volTxt }
             , #{ volDate }
-            , #{ regionNum }
             , #{ managerNum }
         )
     </insert>
+
+    <select id="selectAllVol" parameterType="com.dbteam.common.dtopackage.VolDTO" resultMap="volResultMap">
+        SELECT vol_num
+            , vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        FROM volunteer
+    </select>
+
+    <select id="selectVolByTxt" parameterType="com.dbteam.common.dtopackage.VolDTO" resultMap="volResultMap">
+        SELECT vol_num
+            , vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        FROM volunteer
+        WHERE vol_name LIKE CONCAT('%', #{ volTxt }, '%')
+    </select>
+
+    <select id="checkRights" parameterType="com.dbteam.common.dtopackage.UsersDTO" parameterMap="checkAdmin">
+        SELECT user_num
+            , user_id
+            , user_name
+            , user_phone
+            , region_num
+            , admin_rights
+        FROM users
+        WHERE user_num = #{ num }
+    </select>
+
 </mapper>

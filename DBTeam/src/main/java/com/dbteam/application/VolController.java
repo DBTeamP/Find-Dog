@@ -1,20 +1,22 @@
 package com.dbteam.application;
 
+import com.dbteam.common.dtopackage.UsersDTO;
 import com.dbteam.common.dtopackage.VolDTO;
 import com.dbteam.xml.volunteer.VolService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
-public class MenuController {
+public class VolController {
     private final VolService volService;
 
     private final PrintResult printResult;
 
 
-    public MenuController(){
+    public VolController(){
         volService = new VolService();
         printResult = new PrintResult();
     }
@@ -48,12 +50,45 @@ public class MenuController {
         volDTO.setVolName(volName);
         volDTO.setVolTxt(volTxt);
         volDTO.setVolDate(volDate);
-        volDTO.setRegionNum(regionNum);
         volDTO.setManagerNum(managerNum);
 
         if(volService.registVol(volDTO)){
             printResult.printSuccessMessage("insert");
         }
 
+    }
+
+    public void selectAllMenu() {
+        List<VolDTO> volList = volService.selectAllVol();
+
+        if (volList != null) {
+            printResult.printVolList(volList);
+        } else{
+            printResult.printErrorMessage("selectAllVol");
+        }
+    }
+
+    public void selectVolByTxt(Map<String, String> parameter) {
+        String volTxt = parameter.get("volTxt");
+
+        List<VolDTO> selectVolList = volService.selectVolByTxt(volTxt);
+
+        if(selectVolList != null){
+            printResult.printVol(selectVolList);
+        } else{
+            printResult.printErrorMessage("selectOne");
+        }
+    }
+
+
+    public boolean checkRights(UsersDTO user) {
+
+        boolean result = false;
+
+        if(user.getAdminRights() == "Y"){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
