@@ -66,4 +66,24 @@ public class DogService {
 
     }
 
+    /* 검색 */
+    public void searchDogKind(SearchDogKind searchDogKind) {
+        SqlSession sqlSession = getSqlession();
+        dogMapper = sqlSession.getMapper(DogMapper.class);
+
+        List<DogDTO> dogkindList = dogMapper.searchDogKind(searchDogKind);
+
+        sqlSession.close();
+
+        if (dogkindList != null && dogkindList.size() > 0){
+            for (DogDTO dog : dogkindList){
+                System.out.println(dog);
+            }
+        }else {
+            System.out.println("검색결과가 존재하지 않습니다.");
+        }
+
+    }
+
+
 }

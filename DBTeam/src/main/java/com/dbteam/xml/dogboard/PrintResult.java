@@ -1,5 +1,10 @@
 package com.dbteam.xml.dogboard;
 
+import com.dbteam.common.dtopackage.DogBoardDTO;
+import com.dbteam.common.dtopackage.DogDTO;
+
+import java.util.List;
+
 public class PrintResult {
 
     /* 성공 시 출력 메세지 */
@@ -28,6 +33,20 @@ public class PrintResult {
         }
 
         System.out.println(errorMessage);
+    }
+
+    /* 조회 */
+    public void printDogBoardList(List<DogBoardDTO> dogBoardList){
+        System.out.println("========== 조회한 메뉴 리스트 ==========");
+
+        for (DogBoardDTO dogboard : dogBoardList){
+            System.out.println(dogboard);
+        }
+        /*
+            for(int i = 0; i < dogBoardList.size(); i++) {
+                System.out.println(dogBoardList.get(i));
+            }
+        */
     }
 
 }

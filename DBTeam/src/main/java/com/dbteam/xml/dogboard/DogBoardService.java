@@ -3,6 +3,8 @@ package com.dbteam.xml.dogboard;
 import com.dbteam.common.dtopackage.DogBoardDTO;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 import static com.dbteam.common.Template.getSqlession;
 
 public class DogBoardService {
@@ -10,6 +12,16 @@ public class DogBoardService {
     private DogBoardMapper dogBoardMapper;
 
     /* 조회 */
+    public List<DogBoardDTO> selectAllDogBoard() {
+        SqlSession sqlSession = getSqlession();
+
+        dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
+        List<DogBoardDTO> dogBoardList = dogBoardMapper.selectAllDogBoard();
+
+        sqlSession.close();
+
+        return dogBoardList;
+    }
 
     /* 추가 */
     public boolean registDogBoard(DogBoardDTO dogboard) {

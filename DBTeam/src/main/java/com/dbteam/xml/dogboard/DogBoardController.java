@@ -2,6 +2,7 @@ package com.dbteam.xml.dogboard;
 
 import com.dbteam.common.dtopackage.DogBoardDTO;
 
+import java.util.List;
 import java.util.Map;
 
 public class DogBoardController {
@@ -15,6 +16,15 @@ public class DogBoardController {
     }
 
     /* 조회 */
+    public void selectAllDogBoard() {
+        List<DogBoardDTO> dogBoardList = dogBoardService.selectAllDogBoard();
+
+        if(dogBoardList != null){
+            printResult.printDogBoardList(dogBoardList);
+        } else {
+            printResult.printErrorMessage("selectList");
+        }
+    }
 
     /* 추가 */
     public void registDogBoard(Map<String, String> parameter) {
@@ -25,16 +35,16 @@ public class DogBoardController {
         String dogBoardName = parameter.get("dogBoardName");
         String dogBoardTxt = parameter.get("dogBoardTxt");
         int dogNum = Integer.parseInt(parameter.get("dogNum"));
-        int regionNum = Integer.parseInt(parameter.get("regionNum"));
-        int managerNum = Integer.parseInt(parameter.get("managerNum"));
+//        int regionNum = Integer.parseInt(parameter.get("regionNum"));
+//        int managerNum = Integer.parseInt(parameter.get("managerNum"));
 
         DogBoardDTO dogboard = new DogBoardDTO();
         //dogboard.setDogBoardNum(dogBoardNum);
         dogboard.setDogBoardName(dogBoardName);
         dogboard.setDogBoardTxt(dogBoardTxt);
         dogboard.setDogNum(dogNum);
-        dogboard.setRegionNum(regionNum);
-        dogboard.setManagerNum(managerNum);
+//        dogboard.setRegionNum(regionNum);
+//        dogboard.setManagerNum(managerNum);
 
         if (dogBoardService.registDogBoard(dogboard)){
             printResult.printSuccessMessage("insert");
