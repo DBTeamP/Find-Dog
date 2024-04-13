@@ -48,11 +48,16 @@ public class VolPService {
     }
 
 
-    public List<CountDTO> selectVolP(int userNum, int volNum) {
-        try (SqlSession sqlSession = getSqlession()) {
+    public List<CountDTO> selectVolP(String volName) {
+        SqlSession sqlSession = getSqlession();
+        try {
             VolPMapper volPMapper = sqlSession.getMapper(VolPMapper.class);
-            return volPMapper.selectVolP(userNum, volNum);
+            List<CountDTO> result = volPMapper.selectVolP(volName);
+            return result;
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
         }
-
     }
 }

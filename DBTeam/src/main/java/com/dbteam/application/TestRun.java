@@ -17,9 +17,8 @@ public class TestRun {
         do {
             System.out.println("====봉사 관리=====");
             System.out.println("1. 봉사 일정 추가 ");
-            System.out.println("2. 봉사 게시글 보기 ");
-            System.out.println("3. 봉사 일정 삭제");
-            System.out.println("4. 각 봉사활동 신청 인원 수 체크 ");
+            System.out.println("2. 봉사 일정 삭제");
+            System.out.println("3. 각 봉사활동 신청 인원 수 체크 ");
             System.out.println(" ");
             System.out.println("=============");
             int no = sc.nextInt();
@@ -29,18 +28,19 @@ public class TestRun {
                     volPController.insertVolP(inputVolP());
                     break;
 
-                case 3:
+                case 2:
                     volPController.deleteVolP(inputVolPcode());
                     break;
 
-                case 4:
-                    volPController.selectVolP(inputVolPcode());
+                case 3:
+                    volPController.selectVolP(inputVolName());
                     break;
             }
 
         } while (true);
 
     }
+
 
 
 
@@ -75,6 +75,19 @@ public class TestRun {
         return parameter;
 
     }
+
+
+    private static Map<String, String> inputVolName() {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("봉사활동 이름을 적어주세요 ");
+        String volName = sc.nextLine();
+
+        Map<String,String> parameter = new HashMap<>();
+        parameter.put("volName",volName);
+
+        return parameter;
+    }
+
 }
 
 

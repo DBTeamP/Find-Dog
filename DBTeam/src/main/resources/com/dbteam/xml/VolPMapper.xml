@@ -45,8 +45,9 @@
             volunteer_person vp
         JOIN
             volunteer v ON v.vol_num = vp.vol_num
+        WHERE vol_name = #{ volName}
         GROUP BY
-            vp.vol_num, v.vol_name;
+             v.vol_name;
     </select>
 </mapper>
 

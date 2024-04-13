@@ -48,14 +48,14 @@ public class VolPController {
     }
 
     public void selectVolP(Map<String, String> parameter) {
-        int userNum = Integer.parseInt(parameter.get("userNum"));
-        int volNum = Integer.parseInt(parameter.get("volNum"));
+            String volName = parameter.get("volName");
+        List<CountDTO> result = volPService.selectVolP(volName);
 
-        List<CountDTO> result = volPService.selectVolP(userNum, volNum);
-        if (result != null) {
-            // 성공 코드와 결과 객체를 함께 printSuccesscount 메서드에 전달
-            printResult.printSuccesscount("select",  result.get(0));
-
+        if (result != null && !result.isEmpty()) {
+            for (CountDTO dto : result)
+            printResult.printSuccesscount("select",  dto);
+        }else {
+            System.out.println("조회 결과가 없습니다. 올바른 봉사활동 이름을 입력해주세요.");
         }
     }
 }
