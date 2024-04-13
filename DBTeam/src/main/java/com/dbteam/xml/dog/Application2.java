@@ -12,16 +12,18 @@ public class Application2 {     /* 실행 테스트용 */
         DogController dogController = new DogController();
 
         do {
-            System.out.println("===== 유기견 관리 =====");
-            /* 조회 (select) */   //System.out.println("조회");
+            System.out.println("===== 유기견 관리 (DOG) =====");
+            /* 조회 (select) */
+            System.out.println("1. 유기견 리스트 전체 조회");
 
             /* 추가 (insert) */
-            System.out.println("1. 유기견 추가");
+            System.out.println("2. 유기견 추가");
 
             /* 수정 (update)*/    //System.out.println("수정");
 
             /* 삭제 (delete) */
-            System.out.println("2. 유기견 삭제");
+            System.out.println("3. 유기견 삭제");
+
 
             /* 종료 */
             System.out.println("9. 프로그램 종료");
@@ -31,14 +33,15 @@ public class Application2 {     /* 실행 테스트용 */
 
             switch (no){
                 /* 조회 (select) */
+                case 1: dogController.selectAllProfile(); break;
 
                 /* 추가 (insert) */
-                case 1: dogController.registDogProfile(inputDogProfile()); break;
+                case 2: dogController.registDogProfile(inputDogProfile()); break;
 
                 /* 수정 (update) */
 
                 /* 삭제 (delete) */
-                case 2: dogController.deleteDogProfile(inputDogCode()); break;
+                case 3: dogController.deleteDogProfile(inputDogCode()); break;
 
                 /* 종료 */
                 case 9: System.out.println("유기견 프로필 관리 프로그램을 종료합니다."); return;
@@ -74,17 +77,17 @@ public class Application2 {     /* 실행 테스트용 */
         String dogKind = sc.nextLine();
         System.out.print("강아지 나이를 입력하세요 : ");
         String dogAge = sc.nextLine();
-        System.out.print("강아지의 지역번호를 입력하세요 : ");
-        String regionNum = sc.nextLine();
-        System.out.print("강아지의 관리자번호를 입력하세요 : ");
-        String managerNum = sc.nextLine();
+//        System.out.print("강아지의 지역번호를 입력하세요 : ");
+//        String regionNum = sc.nextLine();
+//        System.out.print("강아지의 관리자번호를 입력하세요 : ");
+//        String managerNum = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("dogName", dogName);
         parameter.put("dogKind", dogKind);
         parameter.put("dogAge", dogAge);
-        parameter.put("regionNum", regionNum);
-        parameter.put("managerNum", managerNum);
+//        parameter.put("regionNum", regionNum);
+//        parameter.put("managerNum", managerNum);
 
         return parameter;
     }
