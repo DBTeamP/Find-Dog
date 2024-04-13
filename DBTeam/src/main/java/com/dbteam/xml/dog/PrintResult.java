@@ -38,4 +38,18 @@ public class PrintResult {
         System.out.println(errorMessage);
     }
 
+    /* 조회 */
+    public void printDogList(List<DogDTO> dogList) {
+        System.out.println("========== 조회한 메뉴 리스트 ==========");
+
+        for (DogDTO dog : dogList){
+            System.out.println(dog);
+        }
+        /*
+            for(int i = 0; i < dogList.size(); i++) {
+                System.out.println(dogList.get(i));
+            }
+        */
+    }
+
 }
