@@ -17,4 +17,7 @@ public interface DogBoardMapper {
     /* 삭제 */
     int deleteDogBoard(int dogBoardNum);
 
+    /* 검색 */
+    List<DogBoardDTO> searchDogBoardName(SearchDogBoardName searchDogBoardName);
+
 }

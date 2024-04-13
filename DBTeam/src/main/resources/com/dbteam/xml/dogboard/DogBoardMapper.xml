@@ -51,5 +51,13 @@
         WHERE dog_board_num = #{ dogBoardNum }
     </delete>
 
+    <!-- 검색 -->
+    <!-- DogBoardDTO - dogBoardNum, dogBoardName, dogBoardTxt, dogNum -->
+    <select id="searchDogBoardName" parameterType="com.dbteam.xml.dogboard.SearchDogBoardName" resultMap="dogBoardResultMap">
+        SELECT dog_board_num, dog_board_name, dog_board_txt, dog_num
+        FROM dog_board
+        WHERE dog_board_name LIKE CONCAT('%', #{ value }, '%')
+
+    </select>
 
 </mapper>

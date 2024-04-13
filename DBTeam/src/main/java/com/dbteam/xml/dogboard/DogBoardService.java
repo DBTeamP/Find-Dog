@@ -63,4 +63,23 @@ public class DogBoardService {
 
     }
 
+    /* 검색 */
+    public void searchDogBoardName(SearchDogBoardName searchDogBoardName) {
+        SqlSession sqlSession = getSqlession();
+        dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
+
+        List<DogBoardDTO> dogBoardList = dogBoardMapper.searchDogBoardName(searchDogBoardName);
+
+        sqlSession.close();
+
+        if (dogBoardList != null && dogBoardList.size() > 0){
+            for (DogBoardDTO dogBoard : dogBoardList){
+                System.out.println(dogBoard);
+            }
+        } else {
+            System.out.println("검색결과가 존재하지 않습니다.");
+        }
+
+    }
+
 }
