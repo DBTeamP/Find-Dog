@@ -1,6 +1,6 @@
-package com.dbteam.xml;
-
+package com.dbteam.xml.volunteer_person;
 import com.dbteam.common.dtopackage.CountDTO;
+
 import com.dbteam.common.dtopackage.VolPDTO;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,3 +16,4 @@ public interface VolPMapper {
 
     List<CountDTO> selectVolP(@Param("volNameList") List<String> volNameList);
 }
+

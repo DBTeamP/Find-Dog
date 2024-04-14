@@ -1,4 +1,4 @@
-package com.dbteam.xml;
+package com.dbteam.xml.volunteer_person;
 
 public class PrintResult {
 
