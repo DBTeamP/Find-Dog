@@ -40,18 +40,13 @@
 
     </select>
 
-    <select id="SearchAdoption" parameterType="SearchCriteria" resultMap="adoptionResultMap">
-        SELECT a.adoption_num
-              ,a.adoption_name
-              ,a.adoption_txt
-              ,a.user_num
-        FROM adoption a
-        <if test="condition == 'name'">
-            WHERE a.adoption_name LIKE CONCAT('%', #{ value }, '%')
-        </if>
-        <if test="condition == 'user'">
-            WHERE a.user_num = #{ value }
-        </if>
+    <select id="searchAdoptionName" parameterType="com.dbteam.xml.adoption.SearchAdoptionName" resultMap="adoptionResultMap">
+    SELECT adoption_num
+        ,adoption_name
+        ,adoption_txt
+        ,user_num
+        FROM adoption
+        WHERE adoption_name LIKE CONCAT('%', #{ value }, '%')
     </select>
 
 

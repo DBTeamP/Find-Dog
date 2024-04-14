@@ -85,31 +85,26 @@ public class AdoptionService {
         return adoptionList;
     }
 
+    // 검색
+    public void searchAdoptionName(SearchAdoptionName searchAdoptionName) {
+        SqlSession sqlSession = getSqlession();
+        adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
 
-    public void searchAdoption(SearchCriteria searchCriteria) {
-        SqlSession sqlSession = null;
-        try {
-            sqlSession = getSqlession();
-            AdoptionMapper mapper = sqlSession.getMapper(AdoptionMapper.class);
+        List<AdoptionDTO> adoptionNameList = adoptionMapper.searchAdoptionName(searchAdoptionName);
 
-            List<AdoptionDTO> adoptionList;
-            adoptionList = mapper.searchAdoption(searchCriteria);
+        sqlSession.close();
 
-            if (adoptionList != null && !adoptionList.isEmpty()) {
-                for (AdoptionDTO adoption : adoptionList) {
-                    System.out.println(adoption);
-                }
-            } else {
-                System.out.println("검색 결과가 존재하지 않습니다.");
+        if (adoptionNameList != null && adoptionNameList.size() > 0) {
+            for (AdoptionDTO adoption : adoptionNameList) {
+                System.out.println(adoption);
             }
-        } catch (Exception e) {
-            System.err.println("검색 과정에서 오류가 발생했습니다: " + e.getMessage());
-        } finally {
-            if (sqlSession != null) {
-                sqlSession.close();
-            }
+        } else {
+            System.out.println("검색 결과가 존재하지 않습니다.");
         }
     }
-}
+
+
+    }
+
 
 

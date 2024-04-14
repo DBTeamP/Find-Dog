@@ -9,9 +9,10 @@ public interface AdoptionMapper {
     //추가
     int insertAdoption(AdoptionDTO adoption);
 
+    //삭제
     int deleteAdoption(int adoptionNum);
 
     List<AdoptionDTO> selectAllMenu();
 
-    List<AdoptionDTO> searchAdoption(SearchCriteria searchCriteria);
+    List<AdoptionDTO> searchAdoptionName(SearchAdoptionName searchAdoptionName);
 }
