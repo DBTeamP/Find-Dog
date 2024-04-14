@@ -46,9 +46,8 @@
         JOIN
             volunteer v ON v.vol_num = vp.vol_num
         WHERE
-        v.vol_name IN
-        <foreach item="item" collection="volNameList" open="(" separator="," close=")">
-            #{item}
+        <foreach item="item" collection="volNameList" open="(" separator=" OR " close=")">
+           v.vol_name LIKE CONCAT('%', #{item}, '%')
         </foreach>
         GROUP BY
              v.vol_name
