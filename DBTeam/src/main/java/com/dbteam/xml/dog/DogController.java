@@ -35,16 +35,12 @@ public class DogController {
         String dogName = parameter.get("dogName");
         String dogKind = parameter.get("dogKind");
         int dogAge = Integer.parseInt(parameter.get("dogAge"));
-//        int regionNum = Integer.parseInt(parameter.get("regionNum"));
-//        int managerNum = Integer.parseInt(parameter.get("managerNum"));
 
         DogDTO dog = new DogDTO();
         //dog.setDogNum(dogNum);
         dog.setDogName(dogName);
         dog.setDogKind(dogKind);
         dog.setDogAge(dogAge);
-//        dog.setRegionNum(regionNum);
-//        dog.setManagerNum(managerNum);
 
         if (dogService.registDogProfile(dog)){
             printResult.printSuccessMessage("insert");
@@ -67,6 +63,7 @@ public class DogController {
         }
 
     }
+
     /* 검색 */
     public void searchDogByKind() {
         Scanner sc = new Scanner(System.in);

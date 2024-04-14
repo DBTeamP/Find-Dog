@@ -6,10 +6,6 @@ import java.util.List;
 
 public class PrintResult {
 
-//    public void printDogProfileList(List<DogDTO> menuList) {
-//
-//    }
-
     /* 성공 시 출력 메세지 */
     public void printSuccessMessage(String successCode) {
         String successMessage = "";

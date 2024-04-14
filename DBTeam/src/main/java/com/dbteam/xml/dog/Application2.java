@@ -74,9 +74,8 @@ public class Application2 {     /* 실행 테스트용 */
     /* 추가 */
     private static Map<String, String> inputDogProfile() {
         Scanner sc = new Scanner(System.in);
-        /*
-            //dogNum, dogName, dogKind, dogAge, regionNum, managerNum
-            //dogName, dogKind, dogAge
+        /* dogNum
+         , dogName, dogKind, dogAge
          */
         System.out.print("강아지 이름을 입력하세요 : ");
         String dogName = sc.nextLine();
@@ -84,17 +83,11 @@ public class Application2 {     /* 실행 테스트용 */
         String dogKind = sc.nextLine();
         System.out.print("강아지 나이를 입력하세요 : ");
         String dogAge = sc.nextLine();
-//        System.out.print("강아지의 지역번호를 입력하세요 : ");
-//        String regionNum = sc.nextLine();
-//        System.out.print("강아지의 관리자번호를 입력하세요 : ");
-//        String managerNum = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("dogName", dogName);
         parameter.put("dogKind", dogKind);
         parameter.put("dogAge", dogAge);
-//        parameter.put("regionNum", regionNum);
-//        parameter.put("managerNum", managerNum);
 
         return parameter;
     }

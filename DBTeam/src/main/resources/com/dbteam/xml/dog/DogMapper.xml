@@ -11,8 +11,6 @@
         <result property="dogName" column="dog_name"/>
         <result property="dogKind" column="dog_kind"/>
         <result property="dogAge" column="dog_age"/>
-<!--        <result property="regionNum" column="region_num"/>-->
-<!--        <result property="managerNum" column="manager_num"/>-->
     </resultMap>
 
     <!-- 조회 -->
@@ -21,9 +19,7 @@
              , dog_name
              , dog_kind
              , dog_age
-<!--             , region_num-->
-<!--             , manager_num-->
-        FROM dog
+          FROM dog
     </select>
 
     <!-- 추가 -->
@@ -32,15 +28,11 @@
             dog_name
             , dog_kind
             , dog_age
-<!--            , region_num-->
-<!--            , manager_num-->
         )
         VALUES (
             #{ dogName }
             , #{ dogKind }
             , #{ dogAge }
-<!--            , #{ regionNum }-->
-<!--            , #{ managerNum }-->
         )
     </insert>
 
@@ -49,7 +41,7 @@
     <!-- 삭제 -->
     <delete id="deleteDogProfile" parameterType="_int">
         DELETE
-        FROM dog
+         FROM dog
         WHERE dog_num = #{ dogNum }
     </delete>
 
