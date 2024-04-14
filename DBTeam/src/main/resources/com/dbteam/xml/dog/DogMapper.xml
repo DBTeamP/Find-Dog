@@ -55,12 +55,16 @@
 
     <!-- 검색 -->
     <!-- DogDTO - dogNum, dogName, dogKind, dogAge, adminNum -->
-    <select id="searchDogKind" parameterType="com.dbteam.xml.dog.SearchDogKind" resultMap="dogProfileResultMap">
+<!--    <select id="searchDogKind" parameterType="com.dbteam.xml.dog.SearchDogKind" resultMap="dogProfileResultMap">-->
+<!--        SELECT dog_num, dog_name, dog_kind, dog_age-->
+<!--        FROM dog-->
+<!--        WHERE dog_kind LIKE CONCAT('%', #{ value }, '%')-->
+
+<!--    </select>-->
+    <select id="searchDogByKind" resultMap="dogProfileResultMap">
         SELECT dog_num, dog_name, dog_kind, dog_age
         FROM dog
-        WHERE dog_kind LIKE CONCAT('%', #{ value }, '%')
-
+        WHERE dog_kind LIKE CONCAT('%', #{dogKind}, '%')
     </select>
-
 
 </mapper>

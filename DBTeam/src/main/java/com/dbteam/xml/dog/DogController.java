@@ -4,6 +4,7 @@ import com.dbteam.common.dtopackage.DogDTO;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class DogController {
 
@@ -65,6 +66,20 @@ public class DogController {
             printResult.printErrorMessage("delete");
         }
 
+    }
+    /* 검색 */
+    public void searchDogByKind() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("검색할 품종을 입력하세요: ");
+        String dogKind = sc.nextLine();
+
+        List<DogDTO> dogList = dogService.searchDogByKind(dogKind);
+
+        if(dogList != null && !dogList.isEmpty()) {
+            printResult.printDogList(dogList);
+        } else {
+            System.out.println("검색 결과가 없습니다.");
+        }
     }
 
 }

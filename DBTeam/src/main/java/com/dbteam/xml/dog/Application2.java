@@ -10,7 +10,7 @@ public class Application2 {     /* 실행 테스트용 */
 
         Scanner sc = new Scanner(System.in);
         DogController dogController = new DogController();
-        DogService dogService = new DogService();
+//        DogService dogService = new DogService();
 
         do {
             System.out.println("===== 유기견 관리 (DOG) =====");
@@ -47,7 +47,8 @@ public class Application2 {     /* 실행 테스트용 */
                 case 3: dogController.deleteDogProfile(inputDogCode()); break;
 
                 /* 검색 */
-                case 4: dogService.searchDogKind(inputSearchDogKind()); break;
+//                case 4: dogService.searchDogKind(inputSearchDogKind()); break;
+                case 4: dogController.searchDogByKind(); break;
 
                 /* 종료 */
                 case 9: System.out.println("유기견 프로필 관리 프로그램을 종료합니다."); return;
@@ -103,14 +104,14 @@ public class Application2 {     /* 실행 테스트용 */
     /*  */
 
     /* 검색 */
-    private static SearchDogKind inputSearchDogKind() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("검색할 품종을 입력하세요 : ");
-        String value = sc.nextLine();
-
-        return new SearchDogKind(value);
-
-    }
+//    private static SearchDogKind inputSearchDogKind() {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("검색할 품종을 입력하세요 : ");
+//        String value = sc.nextLine();
+//
+//        return new SearchDogKind(value);
+//
+//    }
 
 
 }
