@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 
-import static com.dbteam.common.Template.getSqlession;
+import static com.dbteam.common.Template.getSqlSession;
+import static com.dbteam.common.Template.getSqlSession;
 
 public class VolPService {
 
@@ -17,7 +18,7 @@ public class VolPService {
 
     public boolean insertVolP(VolPDTO list) {
 
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         volpmapper = (com.dbteam.xml.volunteer_person.VolPMapper) sqlSession.getMapper(VolPMapper.class);
         int result = volpmapper.insertVolP(list);
@@ -34,7 +35,7 @@ public class VolPService {
     }
 
     public boolean deleteVolP(VolPDTO num) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         volpmapper = sqlSession.getMapper(com.dbteam.xml.volunteer_person.VolPMapper.class);
         int result = volpmapper.deleteVolP(num);
@@ -52,7 +53,7 @@ public class VolPService {
 
 
     public List<CountDTO> selectVolP(List<String> volNameList) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
         try {
             com.dbteam.xml.volunteer_person.VolPMapper volPMapper = sqlSession.getMapper(com.dbteam.xml.volunteer_person.VolPMapper.class);
             Map<String, Object>params = new HashMap<>();
