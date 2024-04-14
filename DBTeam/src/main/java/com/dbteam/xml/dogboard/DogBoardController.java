@@ -4,6 +4,7 @@ import com.dbteam.common.dtopackage.DogBoardDTO;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class DogBoardController {
 
@@ -68,5 +69,19 @@ public class DogBoardController {
 
     }
 
+    /* 검색 */
+    public void searchDogBoardByName() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("검색할 게시글의 제목을 입력하세요(단어 검색 가능) : ");
+        String dogBoardName = sc.nextLine();
+
+        List<DogBoardDTO> dogBoardList = dogBoardService.searchDogBoardByName(dogBoardName);
+
+        if(dogBoardList != null && !dogBoardList.isEmpty()){
+            printResult.printDogBoardList(dogBoardList);
+        } else {
+            System.out.println("검색 결과가 없습니다.");
+        }
+    }
 
 }

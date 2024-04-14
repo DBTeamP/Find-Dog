@@ -12,7 +12,7 @@ public class Application3 { /* 실행 테스트용 */
 
         Scanner sc = new Scanner(System.in);
         DogBoardController dogBoardController = new DogBoardController();
-        DogBoardService dogBoardService = new DogBoardService();
+//        DogBoardService dogBoardService = new DogBoardService();
 
         do{
             System.out.println("===== 유기견 게시판 관리 (DOG BOARD) =====");
@@ -49,7 +49,8 @@ public class Application3 { /* 실행 테스트용 */
                 case 3: dogBoardController.deleteDogBoard(inputDogBoardCode()); break;
 
                 /* 검색 */
-                case 4: dogBoardService.searchDogBoardName(inputSearchDogBoardName()); break;
+//                case 4: dogBoardService.searchDogBoardName(inputSearchDogBoardName()); break;
+                case 4: dogBoardController.searchDogBoardByName(); break;
 
                 /* 종료 */
                 case 9: System.out.println("유기견 게시판 관리 프로그램을 종료합니다."); return;
@@ -104,14 +105,14 @@ public class Application3 { /* 실행 테스트용 */
     /* */
 
     /* 검색 */
-    private static SearchDogBoardName inputSearchDogBoardName() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("검색할 게시글의 제목을 입력하세요(단어 검색 가능) : ");
-        String value = sc.nextLine();
-
-        return new SearchDogBoardName(value);
-
-    }
+//    private static SearchDogBoardName inputSearchDogBoardName() {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("검색할 게시글의 제목을 입력하세요(단어 검색 가능) : ");
+//        String value = sc.nextLine();
+//
+//        return new SearchDogBoardName(value);
+//
+//    }
 
 
 }
