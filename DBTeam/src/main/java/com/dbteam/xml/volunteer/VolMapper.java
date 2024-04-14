@@ -13,4 +13,6 @@ public interface VolMapper {
     List<VolDTO> selectVolByTxt(String volTxt);
 
     List<VolDTO> selectAllVol();
+
+    List<VolDTO> selectVolByUserId(int num);
 }

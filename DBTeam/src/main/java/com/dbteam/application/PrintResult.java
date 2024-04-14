@@ -26,6 +26,9 @@ public class PrintResult {
             case "search" : errorMessage = "검색에 실패했습니다.";
                 System.out.println(errorMessage);
                 break;
+            case "searchByUserId" : errorMessage = "존재하지 않은 id 입니다.";
+                System.out.println(errorMessage);
+                break;
         }
 
     }

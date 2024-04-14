@@ -11,14 +11,6 @@
         <result property="managerNum" column="manager_num"/>
     </resultMap>
 
-    <resultMap id="checkAdmin" type="com.dbteam.common.dtopackage.UsersDTO">
-        <id property = "userNum" column="user_num"/>
-        <result property="userName" column="user_name"/>
-        <result property="userId" column="user_ud"/>
-        <result property="userPhone" column="user_phone"/>
-        <result property="regionNum" column="region_num"/>
-        <result property="adminRights" column="admin_rights"/>
-    </resultMap>
 
     <delete
             id="deleteVol" parameterType="com.dbteam.common.dtopackage.VolDTO">
@@ -61,15 +53,14 @@
         WHERE vol_name LIKE CONCAT('%', #{ volTxt }, '%')
     </select>
 
-    <select id="checkRights" parameterType="com.dbteam.common.dtopackage.UsersDTO" parameterMap="checkAdmin">
-        SELECT user_num
-            , user_id
-            , user_name
-            , user_phone
-            , region_num
-            , admin_rights
-        FROM users
-        WHERE user_num = #{ num }
-    </select>
 
+    <select id="selectVolByUserId" parameterType="com.dbteam.common.dtopackage.VolDTO" resultMap="volResultMap">
+        SELECT vol_num
+            , vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        FROM volunteer
+        WHERE manager_num = #{ num }
+    </select>
 </mapper>

@@ -66,4 +66,17 @@ public class VolService {
 
         return volList;
     }
+
+    public List<VolDTO> selectVolByUserId(int num) {
+
+        SqlSession sqlSession = getSqlession();
+
+        volMapper = sqlSession.getMapper(VolMapper.class);
+        List<VolDTO> myVolList = volMapper.selectVolByUserId(num);
+
+        sqlSession.close();
+
+        return myVolList;
+
+    }
 }

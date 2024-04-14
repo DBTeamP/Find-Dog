@@ -78,17 +78,22 @@ public class VolController {
         } else{
             printResult.printErrorMessage("selectOne");
         }
+        //controller : 식당 -> 손님(v) 홀서빙(c) 요리사(m)
+        // 손님이 주문 -> View 프로트와 상호작용
+        // 홀서빙 전달 -> 요리사와 손님의 중간 다리역할
+        // 요리사 요리 -> 요리(DB)를 직접 접근하는 역할
     }
 
 
-    public boolean checkRights(UsersDTO user) {
+    public void searchByUserNum(int userNum) {
+        int num = userNum;
+        List<VolDTO> myVolList = volService.selectVolByUserId(num);
 
-        boolean result = false;
-
-        if(user.getAdminRights() == "Y"){
-            return true;
+        if(myVolList != null){
+            printResult.printVolList(myVolList);
         } else {
-            return false;
+            printResult.printErrorMessage("searchByUserId");
         }
     }
 }
+
