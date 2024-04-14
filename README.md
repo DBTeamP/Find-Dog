@@ -26,20 +26,22 @@
 
 
 ## 개발 환경
-- MyBatis Framework 활용
-- JDK 17 버전
-- Gradle project
+- # 1.프로그래밍 언어 및 프레임워크:
+-  Java를 기반으로 MyBatis Framework를 활용하여 데이터베이스와의 상호작용을 관리.
+- # 2. 개발 도구
+  - JDK 버전: JDK 17을 사용하여 Java 애플리케이션을 개발.
+  - 빌드 도구: Gradle을 사용하여 프로젝트의 의존성 관리 및 빌드 과정을 자동화.
+
 - 버전 및 이슈관리 : Github, Github Issues, Github Project
 - 협업 툴 : Discord, Notion, Github 
  
  
  
-## 2. 개발환경 과 요구사항 및과 브랜치 전략
+## 2. 개발방향 과 요구사항 및과 브랜치 전략
 
 ### 개발 방향
 
 
-### 채택 기술
 
 
 
@@ -53,8 +55,8 @@
 
 
 ## 3. 기능도 
-   ![Untitled](https://github.com/DBTeamP/DBProject/assets/129252557/b9b17ce1-f1dc-4567-8b82-c20bd44977d8)
- ## ERD
+    ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/176b7d44-e203-4868-a164-e77eca7e18fc)
+ ## 물리 ERD
    ![Untitled (1)](https://github.com/DBTeamP/DBProject/assets/129252557/3c5fc3a0-03eb-4967-b486-35d4f1ea839a)
 
 ## 4. 작업관리
