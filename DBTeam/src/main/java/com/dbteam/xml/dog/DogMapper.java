@@ -18,6 +18,7 @@ public interface DogMapper {
     int deleteDogProfile(int dogNum);
 
     /* 검색*/
-    List<DogDTO> searchDogKind(SearchDogKind searchDogKind);
+//    List<DogDTO> searchDogKind(SearchDogKind searchDogKind);
+    List<DogDTO> searchDogByKind(String dogKind);
 
 }

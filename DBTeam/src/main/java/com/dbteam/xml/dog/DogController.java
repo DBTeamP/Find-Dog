@@ -4,6 +4,7 @@ import com.dbteam.common.dtopackage.DogDTO;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class DogController {
 
@@ -34,16 +35,12 @@ public class DogController {
         String dogName = parameter.get("dogName");
         String dogKind = parameter.get("dogKind");
         int dogAge = Integer.parseInt(parameter.get("dogAge"));
-//        int regionNum = Integer.parseInt(parameter.get("regionNum"));
-//        int managerNum = Integer.parseInt(parameter.get("managerNum"));
 
         DogDTO dog = new DogDTO();
         //dog.setDogNum(dogNum);
         dog.setDogName(dogName);
         dog.setDogKind(dogKind);
         dog.setDogAge(dogAge);
-//        dog.setRegionNum(regionNum);
-//        dog.setManagerNum(managerNum);
 
         if (dogService.registDogProfile(dog)){
             printResult.printSuccessMessage("insert");
@@ -65,6 +62,21 @@ public class DogController {
             printResult.printErrorMessage("delete");
         }
 
+    }
+
+    /* 검색 */
+    public void searchDogByKind() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("검색할 품종을 입력하세요: ");
+        String dogKind = sc.nextLine();
+
+        List<DogDTO> dogList = dogService.searchDogByKind(dogKind);
+
+        if(dogList != null && !dogList.isEmpty()) {
+            printResult.printDogList(dogList);
+        } else {
+            System.out.println("검색 결과가 없습니다.");
+        }
     }
 
 }
