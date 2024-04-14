@@ -55,7 +55,8 @@
 
 
 ## 3. 기능도 
-    ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/176b7d44-e203-4868-a164-e77eca7e18fc)
+  ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/4f4c716b-8de8-4285-8123-83e28b218a67)
+
  ## 물리 ERD
    ![Untitled (1)](https://github.com/DBTeamP/DBProject/assets/129252557/3c5fc3a0-03eb-4967-b486-35d4f1ea839a)
 
