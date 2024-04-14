@@ -1,51 +1,58 @@
-    package com.dbteam.application;
+package com.dbteam.application;
 
-    import com.dbteam.common.dtopackage.FindDogDTO;
+import com.dbteam.common.dtopackage.FindDogDTO;
 
-    import java.util.List;
-    import java.util.Map;
+import java.util.List;
+import java.util.Map;
 
-    public class FindDogController {
+public class FindDogController {
 
-        private final PrintResult printResult;
-        private final FindDogService findDogService;
+    private PrintResult printResult;
+    private FindDogService findDogService;
 
-        public FindDogController() {
-            printResult = new PrintResult();
-            findDogService = new FindDogService();
-        }
+    public FindDogController() {
+        printResult = new PrintResult();
+        findDogService = new FindDogService();
+    }
 
-        public void selectAllDog(Map<String, String> parameter) {
-            List<FindDogDTO> dogList = findDogService.selectAllDog();
-
-            if (dogList != null) {
-                printResult.printDogList(dogList);
-            } else {
-                System.out.println("error");
-            }
-        }
-        public void selectDogByName(Map<String, String> parameter) {
-            String dogName = parameter.get("name");
-            FindDogDTO dog = findDogService.selectDogByName(dogName);
-
-            if (dog != null) {
-                printResult.printDog(dog);
-            } else {
-                System.out.println("error");
-            }
-        }
+    // 전체 찾기
+    public void selectAllDog() {
+        List<FindDogDTO> fdogList = findDogService.selectAllDog();
 
 
-        public void registerDog(Map<String, String> parameter) {
-            String name = parameter.get("FindName");
-
-            FindDogDTO dog = new FindDogDTO();
-            dog.setFindName(name);
-
-            if (findDogService.registerDog(dog)) {
-                printResult.printDogSuccessMessage("insert");
-            } else {
-                System.out.println("error");
-            }
+        if (fdogList != null) {
+            printResult.printDogList(fdogList);
+        } else {
+            printResult.printErrorMessage("");
         }
     }
+
+    public void registerDog(Map<String, String> parameter) {
+        String findName = parameter.get("findName");
+        String findTxt = parameter.get("findTxt");
+
+        FindDogDTO fdog = new FindDogDTO();
+        fdog.setFindName(findName);
+        fdog.setFindTxt(findTxt);
+
+        //여기 나중에 반드시 출력문구 느세요 지금 귀차늠 ㅋ넵
+        if (findDogService.registerDog(fdog)) {
+            printResult.printSuccessMessage("");
+        } else {
+            printResult.printErrorMessage("");
+        }
+    }
+
+    public void findSearchDog(Map<String, String> parameter) {
+        String findName = parameter.get("findName");
+        List<FindDogDTO> dogList = findDogService.selectDogByName(findName);
+
+        if (dogList != null) {
+            printResult.printDogList(dogList);
+        } else{
+            // 여기 나중에 printErrorMessage 클래스 만들어서 위에랑 비슷하게 해야함
+            System.out.println("error");
+        }
+
+    }
+}

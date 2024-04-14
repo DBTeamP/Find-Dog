@@ -12,33 +12,49 @@ import static com.dbteam.common.Template.getSqlSession;
 
 public class FindDogService {
 
-    private FindDogMapper findDogMapper;
+    private static FindDogMapper findDogMapper;
 
     public List<FindDogDTO> selectAllDog() {
-        try (SqlSession sqlSession = getSqlSession()) {
-            findDogMapper = sqlSession.getMapper(FindDogMapper.class);
-            return findDogMapper.selectAllDog();
-        }
+        SqlSession sqlSession = getSqlSession();
+
+        findDogMapper = sqlSession.getMapper(FindDogMapper.class);
+        List<FindDogDTO> fdogList = findDogMapper.selectAllDog();
+
+        sqlSession.close();
+
+        return fdogList;
+
     }
 
-    public FindDogDTO selectDogByName(String dogName) {
-        try (SqlSession sqlSession = getSqlSession()) {
-            findDogMapper = sqlSession.getMapper(FindDogMapper.class);
-            return findDogMapper.selectDogByName(dogName);
+
+    public boolean registerDog(FindDogDTO fdog){
+
+        SqlSession sqlSession = getSqlSession();
+
+        findDogMapper = sqlSession.getMapper(FindDogMapper.class);
+        int result = findDogMapper.insertDog(fdog);
+
+        if(result > 0){
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
         }
-    }
-    public boolean registerDog(FindDogDTO dog) {
-        try (SqlSession sqlSession = getSqlSession()) {
-            findDogMapper = sqlSession.getMapper(FindDogMapper.class);
-            int result = findDogMapper.insertDog(dog); // 여기서 수정
-            if (result > 0) {
-                sqlSession.commit();
-                return true;
-            } else {
-                sqlSession.rollback();
-                return false;
-            }
-        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+
     }
 
+
+    public List<FindDogDTO> selectDogByName(String findName) {
+        SqlSession sqlSession = getSqlSession();
+
+        findDogMapper = sqlSession.getMapper(FindDogMapper.class);
+        List<FindDogDTO> dogList = findDogMapper.selectDogByName(findName);
+
+        sqlSession.close();
+
+        return dogList;
+    }
 }

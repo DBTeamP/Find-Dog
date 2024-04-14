@@ -32,11 +32,17 @@ public class PrintResult {
         }
         System.out.println(successMessage);
     }
+    /* 실패 시 출력 메세지 */
+    public void printErrorMessage(String errorCode) {
+        String errorMessage = "";
 
-    public void printDog(FindDogDTO dog) {
-        System.out.println("Dog Information:");
-        System.out.println("Name: " + dog.getFindName());
+        switch (errorCode) {
+            case "insertDog" : errorMessage = "실패."; break;
+            case "findDogByName" : errorMessage = "실패."; break;
 
-        // 필요한 다른 정보 출력
+        }
+
+        System.out.println(errorMessage);
     }
+
 }

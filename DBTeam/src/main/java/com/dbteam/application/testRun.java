@@ -104,7 +104,7 @@ public class testRun {
                 case 1:
                     break;
                 case 2:
-                    pageFindingDog(sc);
+                    pageFindingDog();
                     break;
                 case 3:
                     break;
@@ -133,8 +133,9 @@ public class testRun {
         }while(true);
     }
 
-    private static void pageFindingDog(Scanner sc) {
-
+    private static void pageFindingDog() {
+        Scanner sc = new Scanner(System.in);
+        FindDogController findDogController = new FindDogController();
         do {
             System.out.println("======= FINDING DOG =======");
             System.out.println("1. 미아견 확인하기");
@@ -147,7 +148,7 @@ public class testRun {
                     findingDog();
                     break;
                 case 2:
-                    registerDog();
+                    findDogController.registerDog(inputDog());
                     break;
 
                 case 3:
@@ -158,9 +159,25 @@ public class testRun {
         } while (true);
     }
 
+    private static Map<String, String> inputDog() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("강아지 이름을 입력하세요: ");
+        String findName = sc.nextLine();
+        System.out.print("강아지 정보를 입력하세요: ");
+        String findTxt = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("findName", findName);
+        parameter.put("findTxt", findTxt);
+
+        return parameter;
+    }
+
 
     private static void findingDog() {
         Scanner sc = new Scanner(System.in);
+        FindDogController findDogController = new FindDogController();
+
         do {
             System.out.println("======= FINDING DOG =======");
             System.out.println("1. 전체 목록 보기");
@@ -170,10 +187,11 @@ public class testRun {
             int no = sc.nextInt();
             switch (no) {
                 case 1:
-                    findAllDogsByName();
+                    findDogController.selectAllDog();
                     break;
                 case 2:
-                    findDogByName();
+                    findDogController.findSearchDog(inputFindName());
+                    // view(지금여기) -> controller -> service에서 mapper-mapping -> controller -> view
                     break;
                 case 3:
                     return;
@@ -183,48 +201,28 @@ public class testRun {
         } while (true);
     }
 
-    private static void findAllDogsByName() {
+    private static Map<String, String> inputFindName() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("전체 목록");
+
+        System.out.print("이름을 입력해주세요 : ");
         String findName = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("findName", findName);
-
-        // FindDogList 클래스의 selectAllDog() 메서드 호출
-        FindDogController findDogList = new FindDogController();
-        findDogList.selectAllDog(parameter);
-    }
-
-    private static void findDogByName() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("찾으실 강아지의 이름을 입력하세요: ");
-        String dogName = sc.nextLine();
-
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put("name", dogName);
-
-        FindDogController findDogList = new FindDogController();
-        findDogList.selectDogByName(parameter);
-    }
-
-    private static Map<String, String> registerDog() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("강아지 이름을 입력하세요: ");
-        String findName = sc.nextLine();
-
-        System.out.print("강아지 정보를 입력하세요: ");
-        String findTxt = sc.nextLine();
-
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put("findName", findName);
-        parameter.put("findTxt", findTxt);
-
-        FindDogController findDogList = new FindDogController();
-        findDogList.registerDog(parameter);
 
         return parameter;
     }
+
+    private static FindSearchDog ffindsearchDog() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("검색할 강아지의 이름을 입력하세요 : ");
+        String value = sc.nextLine();
+
+        return new FindSearchDog(value);
+
+    }
+
+
 
     static void pageAdminMain(){
         Scanner sc = new Scanner(System.in);
