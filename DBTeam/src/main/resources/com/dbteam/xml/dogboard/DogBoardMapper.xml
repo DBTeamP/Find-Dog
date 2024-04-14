@@ -6,15 +6,12 @@
 <mapper namespace="com.dbteam.xml.dogboard.DogBoardMapper">
 
     <!-- resultMap-->
-    <!-- dogBoardNum, dogBoardName, dogBoardTxt, dogNum, regionNum, managerNum -->
     <!-- dogBoardNum, dogBoardName, dogBoardTxt, dogNum-->
     <resultMap id="dogBoardResultMap" type="com.dbteam.common.dtopackage.DogBoardDTO">
         <id property="dogBoardNum" column="dog_board_num"/>
         <result property="dogBoardName" column="dog_board_name"/>
         <result property="dogBoardTxt" column="dog_board_txt"/>
         <result property="dogNum" column="dog_num"/>
-<!--        <result property="regionNum" column="region_num"/>-->
-<!--        <result property="managerNum" column="manager_num"/>-->
     </resultMap>
 
     <!-- 조회 -->
@@ -30,15 +27,11 @@
             dog_board_name
             , dog_board_txt
             , dog_num
-<!--            , region_num-->
-<!--            , manager_num-->
         )
         VALUES (
             #{ dogBoardName }
             , #{ dogBoardTxt }
             , #{ dogNum }
-<!--            , #{ regionNum }-->
-<!--            , #{ managerNum }-->
         )
     </insert>
 

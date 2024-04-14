@@ -77,25 +77,18 @@ public class Application3 { /* 실행 테스트용 */
     private static Map<String, String> inputDogBoard() {
         Scanner sc = new Scanner(System.in);
         /* dogBoardNum,
-           dogBoardName, dogBoardTxt, dogNum,
-           //regionNum, managerNum */
+           dogBoardName, dogBoardTxt, dogNum */
         System.out.print("게시글 제목을 입력하세요 : ");
         String dogBoardName = sc.nextLine();
         System.out.print("게시글 내용을 입력하세요 : ");
         String dogBoardTxt = sc.nextLine();
         System.out.print("강아지 번호를 입력하세요 : ");
         String dogNum = sc.nextLine();
-//        System.out.print("지역 번호를 입력하세요 : ");
-//        String regionNum = sc.nextLine();
-//        System.out.print("관리자번호를 입력하세요 : ");
-//        String managerNum = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("dogBoardName", dogBoardName);
         parameter.put("dogBoardTxt", dogBoardTxt);
         parameter.put("dogNum", dogNum);
-//        parameter.put("regionNum", regionNum);
-//        parameter.put("managerNum", managerNum);
 
         return parameter;
     }
