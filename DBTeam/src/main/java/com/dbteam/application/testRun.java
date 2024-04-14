@@ -1,17 +1,14 @@
 package com.dbteam.application;
 
 import com.dbteam.common.dtopackage.UsersDTO;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class testRun {
-
     public static void main(String[] args) {
         welComeDog();
     }
-
 
     private static void welComeDog(){
         Scanner sc = new Scanner(System.in);
@@ -156,14 +153,17 @@ public class testRun {
             }
         }while(true);
     }
+  
     private static void volPage(){
         //권한에 따른 추가 삭제 제한 조정해야함
         //유저 고유 번호를 받아 값을 입력받아야함
         //userDTO 관련 지워서 로그인쪽이랑 다시 연동시켜야함
         Scanner sc = new Scanner(System.in);
         VolController volController = new VolController();
+//        MenuController menuController = new MenuController();
         UsersDTO user = new UsersDTO();
         user.setUserNum(1);
+
         do{
             System.out.println("====== VOLUNTEER ======");
             System.out.println("1. 봉사 일정 추가");
@@ -198,9 +198,8 @@ public class testRun {
                 case 6: volController.searchByUserNum(user.getUserNum()); break;
                 case 7: return;
             }
-        }while(true);
+        } while(true);
     }
-
 
     private static Map<String, String> inputVolNum() {
         Scanner sc = new Scanner(System.in);
