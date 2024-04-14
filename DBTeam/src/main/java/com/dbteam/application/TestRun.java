@@ -172,7 +172,7 @@ public class TestRun {
 //                case 1: menuController.registMenu(inputVol()); break;
                 case 2: break;
 //                case 3: menuController.deleteVol(inputVolNum()); break;
-                case 4: break;
+                case 4: volPPage();
                 case 5: return;
             }
         }while(true);
@@ -224,9 +224,7 @@ public class TestRun {
             System.out.println("2. 봉사 일정 삭제");
             System.out.println("3. 각 봉사활동 신청 인원 수 체크 ");
             System.out.println("4. 이전 페이지로 이동 ");
-            System.out.println("9. 프로그램 종료");
-            System.out.println(" ");
-            System.out.println("=============");
+            System.out.print("번호를 입력해주세요 : ");
             int no = sc.nextInt();
 
             switch (no) {
