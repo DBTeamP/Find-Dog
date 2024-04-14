@@ -4,6 +4,7 @@ import com.dbteam.common.dtopackage.AdoptionDTO;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class AdoptionController {
 
@@ -56,6 +57,21 @@ public class AdoptionController {
             printResult.printErrorMessage("selectList");
         }
 
+
+    }
+    // 검색
+    public void searchAdoptionByName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("검색할 제목을 입력하세요 : ");
+        String adoptionName = scanner.nextLine();
+
+        List<AdoptionDTO> adoptionList = adoptionService.searchAdoptionByName(adoptionName);
+
+        if (adoptionList != null && !adoptionList.isEmpty()) {
+            printResult.printAdoptionList(adoptionList);
+        }else {
+            System.out.println("검색 결과가 없습니다.");
+        }
 
     }
 }

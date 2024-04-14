@@ -11,7 +11,7 @@ public class Application2 {
 
         Scanner sc = new Scanner(System.in);
         AdoptionController adoptionController = new AdoptionController();
-        AdoptionService adoptionService = new AdoptionService();
+       // AdoptionService adoptionService = new AdoptionService();
 
         do {
             System.out.println("================= 입양 일지 ==================");
@@ -25,10 +25,16 @@ public class Application2 {
             int no = sc.nextInt();
 
             switch (no) {
+               /*전체 조회*/
                 case 1: adoptionController.selectAllMenu(); break;
+                /*추가*/
                 case 2: adoptionController.registAdoption(inputAdoption()); break;
+                /*삭제*/
                 case 3: adoptionController.deleteAdoption(inputAdoptionCode()); break;
-                case 4: adoptionService.searchAdoptionName(inputSearchAdoptionName()); break;
+                /*검색*/
+                // case 4: adoptionService.searchAdoptionName(inputSearchAdoptionName()); break;
+                case 4: adoptionController.searchAdoptionByName(); break;
+                /*종료*/
                 case 9: System.out.println("입양 일지 프로그램을 종료합니다."); return;
                 default: System.out.println("잘못된 관리 번호입니다."); break;
 
@@ -70,17 +76,17 @@ public class Application2 {
     }
 
     //검색
-    private static SearchAdoptionName inputSearchAdoptionName() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("검색 할 제목을 입력하세요 : ");
-        String value = sc.nextLine();
-
-        return new SearchAdoptionName(value);
+//    private static SearchAdoptionName inputSearchAdoptionName() {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("검색 할 제목을 입력하세요 : ");
+//        String value = sc.nextLine();
+//
+//        return new SearchAdoptionName(value);
     }
 
 
 
-}
+
 
 
 /*public class AdoptionDTO {

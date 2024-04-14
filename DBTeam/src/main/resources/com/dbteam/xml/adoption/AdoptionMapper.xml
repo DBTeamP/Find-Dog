@@ -40,13 +40,22 @@
 
     </select>
 
-    <select id="searchAdoptionName" parameterType="com.dbteam.xml.adoption.SearchAdoptionName" resultMap="adoptionResultMap">
-    SELECT adoption_num
-        ,adoption_name
-        ,adoption_txt
-        ,user_num
+<!--    <select id="searchAdoptionName" parameterType="com.dbteam.xml.adoption.SearchAdoptionName" resultMap="adoptionResultMap">-->
+<!--    SELECT adoption_num-->
+<!--        ,adoption_name-->
+<!--        ,adoption_txt-->
+<!--        ,user_num-->
+<!--        FROM adoption-->
+<!--        WHERE adoption_name LIKE CONCAT('%', #{ value }, '%')-->
+<!--    </select>-->
+
+    <select id="searchAdoptionByName" resultMap="adoptionResultMap">
+        SELECT adoption_num
+              ,adoption_name
+              ,adoption_txt
+              ,user_num
         FROM adoption
-        WHERE adoption_name LIKE CONCAT('%', #{ value }, '%')
+        WHERE adoption_name LIKE CONCAT('%', #{adoptionName}, '%')
     </select>
 
 

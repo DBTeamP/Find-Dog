@@ -86,21 +86,33 @@ public class AdoptionService {
     }
 
     // 검색
-    public void searchAdoptionName(SearchAdoptionName searchAdoptionName) {
+//    public void searchAdoptionName(SearchAdoptionName searchAdoptionName) {
+//        SqlSession sqlSession = getSqlession();
+//        adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
+//
+//        List<AdoptionDTO> adoptionNameList = adoptionMapper.searchAdoptionName(searchAdoptionName);
+//
+//        sqlSession.close();
+//
+//        if (adoptionNameList != null && adoptionNameList.size() > 0) {
+//            for (AdoptionDTO adoption : adoptionNameList) {
+//                System.out.println(adoption);
+//            }
+//        } else {
+//            System.out.println("검색 결과가 존재하지 않습니다.");
+//        }
+
+    public List<AdoptionDTO> searchAdoptionByName(String adoptionName) {
         SqlSession sqlSession = getSqlession();
-        adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
 
-        List<AdoptionDTO> adoptionNameList = adoptionMapper.searchAdoptionName(searchAdoptionName);
+        try {
+            adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
+            return adoptionMapper.searchAdoptionByName(adoptionName);
+        } finally {
+            sqlSession.close();
+    }
 
-        sqlSession.close();
 
-        if (adoptionNameList != null && adoptionNameList.size() > 0) {
-            for (AdoptionDTO adoption : adoptionNameList) {
-                System.out.println(adoption);
-            }
-        } else {
-            System.out.println("검색 결과가 존재하지 않습니다.");
-        }
     }
 
 
