@@ -278,9 +278,13 @@ public class testRun {
             int no = sc.nextInt();
             switch (no) {
                 case 1: dogController.selectAllProfile();break;
-                case 2: break;
-                case 3: break;
-                case 4: return;
+                case 2: dogController.registDogProfile(inputDogProfile()); break;
+                case 3: dogController.deleteDogProfile(inputDogCode()); break;
+                case 4: dogController.searchDogByKind(); return;
+
+                /* 종료 */
+                case 9: System.out.println("유기견 프로필 관리 프로그램을 종료합니다."); return;
+                default: System.out.println("잘못된 관리 번호입니다."); break;
             }
         } while(true);
     }
@@ -395,6 +399,41 @@ public class testRun {
         parameter.put("volDate", volDate);
         parameter.put("regionNum",regionNum);
         parameter.put("managerNum",managerNum);
+
+        return parameter;
+    }
+
+    /* ==================================================== */
+    /* 조회 */
+    /* 삭제*/
+    private static Map<String, String> inputDogCode() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("강아지 번호를 입력하세요. : ");
+        String dogNum = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("dogNum", dogNum);
+
+        return parameter;
+    }
+
+    /* 추가 */
+    private static Map<String, String> inputDogProfile() {
+        Scanner sc = new Scanner(System.in);
+        /* dogNum
+         , dogName, dogKind, dogAge
+         */
+        System.out.print("강아지 이름을 입력하세요 : ");
+        String dogName = sc.nextLine();
+        System.out.print("강아지 품종을 입력하세요 : ");
+        String dogKind = sc.nextLine();
+        System.out.print("강아지 나이를 입력하세요 : ");
+        String dogAge = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("dogName", dogName);
+        parameter.put("dogKind", dogKind);
+        parameter.put("dogAge", dogAge);
 
         return parameter;
     }
