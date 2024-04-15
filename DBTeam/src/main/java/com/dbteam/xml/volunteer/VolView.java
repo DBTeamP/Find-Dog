@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class VolView {
-    public static void volPage(){
+    public static void volPage(String rights){
         //권한에 따른 추가 삭제 제한 조정해야함
         //유저 고유 번호를 받아 값을 입력받아야함
         //userDTO 관련 지워서 로그인쪽이랑 다시 연동시켜야함
@@ -16,9 +16,7 @@ public class VolView {
         VolController volController = new VolController();
         VolPView volPView = new VolPView();
 
-//        MenuController menuController = new MenuController();
-        UsersDTO user = new UsersDTO();
-        user.setUserNum(1);
+
 
         do{
             System.out.println("====== VOLUNTEER ======");
@@ -36,23 +34,24 @@ public class VolView {
 
                 case 1:
                     // 권환 확인 (분기 처리)
-                    if(user.getAdminRights() == "Y") {
+                    if(rights == "Y") {
                         volController.registMenu(inputVol());
                         break;
                     } else {
                         System.out.println("권한이 없습니다.");
+                        break;
                     }
                 case 2: volController.selectAllMenu(); break;
                 case 3: volController.selectVolByTxt(inputVolTxt()); break;
                 case 4:
-                    if(user.getAdminRights() == "N") {
+                    if(rights == "N") {
                         volController.deleteVol(inputVolNum());
                     } else{
                         System.out.println("권한이 없습니다.");
                     }
                     break;
                 case 5: volPView.volPPage(); break;
-                case 6: volController.searchByUserNum(user.getUserNum()); break;
+//                case 6: volController.searchByUserNum(user.getUserNum()); break;
                 case 7: return;
 
             }

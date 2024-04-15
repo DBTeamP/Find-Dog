@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class LoginView {
 
+    private static String rights = "N"; //일단 Y로 초기호할게요
     public static Map<String, String> logInPage() {
         Scanner sc = new Scanner(System.in);
         LogInController logInController = new LogInController(); // LogInController 객체 생성
@@ -24,13 +25,13 @@ public class LoginView {
         switch (no) {
             case 1:
                 if(logInController.lonInAdmin(logIn()) == "Y"){
-                    String rights = "Y";
+                    rights = "Y";
                     pageAdminMain();
                 }
                 break;
             case 2:
                 if(logInController.logInUser(logIn()) == "N"){
-                    String rights = "N";
+                    rights = "N";
                     pageUserMain();
                 }
                 break;
@@ -69,7 +70,7 @@ public class LoginView {
             System.out.print("번호를 입력해주세요 : ");
             int no = sc.nextInt();
             switch (no) {
-                case 1: volView.volPage();break;
+                case 1: volView.volPage(rights);break;
                 case 2: dogView.pageDog(); break;
                 case 3: dogBoardView.pageDogBoard();break;
                 case 4: return;
@@ -101,7 +102,7 @@ public class LoginView {
                     findDogView.pageFindingDog();
                     break;
                 case 3:
-                    volView.volPage();
+                    volView.volPage(rights);
                     break;
                 case 4:
                     dogBoardView.pageDogBoard();

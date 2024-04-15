@@ -50,13 +50,13 @@ public class LogInController {
 
         List<UsersDTO> searchAdminId = logInService.isAdminUser(userId);
 
-        if(searchAdminId.get(0).getAdminRights() == "Y"){
+        if("Y".equals(searchAdminId.get(0).getAdminRights())){
             System.out.println("관리자 권한 로그인에 성공하였습니다.");
 
             return rights;
         } else{
             System.out.println("잘못 입력하였습니다.");
-            rights = "N";
+            rights = "";
             return rights;
         }
     }
@@ -67,12 +67,12 @@ public class LogInController {
         List<UsersDTO> searchUserId = logInService.isUser(userId);
 
 
-        if(searchUserId.size() != 0){
+        if("N".equals(searchUserId.get(0).getAdminRights())){
             System.out.println("로그인에 성공하였습니다.");
             return rights;
         } else{
             System.out.println("잘못 입력하였습니다.");
-            rights = "Y";
+            rights = "";
             return rights;
         }
     }
