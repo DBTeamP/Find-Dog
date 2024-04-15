@@ -1,4 +1,3 @@
-
 package com.dbteam.common.dtopackage;
 
 public class RegionDTO {
@@ -37,3 +36,4 @@ public class RegionDTO {
                 '}';
     }
 }
+

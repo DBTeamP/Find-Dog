@@ -1,4 +1,3 @@
-
 package com.dbteam.common.dtopackage;
 
 // adminRights 변수 추가(String형)
@@ -82,3 +81,4 @@ public class UsersDTO {
                 '}';
     }
 }
+

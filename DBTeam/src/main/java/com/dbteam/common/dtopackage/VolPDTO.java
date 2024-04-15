@@ -11,7 +11,6 @@ public class VolPDTO {
     public VolPDTO(int userNum, int volNum) {
         this.userNum = userNum;
         this.volNum = volNum;
-
     }
 
     public int getUserNum() {
@@ -29,7 +28,6 @@ public class VolPDTO {
     public void setVolNum(int volNum) {
         this.volNum = volNum;
     }
-
 
     @Override
     public String toString() {

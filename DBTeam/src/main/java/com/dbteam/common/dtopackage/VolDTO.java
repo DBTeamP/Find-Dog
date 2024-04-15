@@ -1,4 +1,3 @@
-
 package com.dbteam.common.dtopackage;
 
 import java.util.Date;
@@ -8,7 +7,7 @@ public class VolDTO {
     private int volNum;
     private String volName;
     private String volTxt;
-    private Date volDate;
+    private java.util.Date volDate;
     private int managerNum;
 
     public VolDTO() {

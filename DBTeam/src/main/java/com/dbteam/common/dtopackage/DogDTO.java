@@ -1,4 +1,3 @@
-
 package com.dbteam.common.dtopackage;
 
 // regionNum & managerNum 삭제
@@ -72,3 +71,4 @@ public class DogDTO {
                 '}';
     }
 }
+

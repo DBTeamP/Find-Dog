@@ -1,4 +1,3 @@
-
 package com.dbteam.common.dtopackage;
 
 // regionNum 컬럼 삭제
@@ -60,3 +59,4 @@ public class AdoptionDTO {
                 '}';
     }
 }
+
