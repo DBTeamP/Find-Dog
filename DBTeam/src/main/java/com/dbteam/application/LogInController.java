@@ -44,7 +44,7 @@ public class LogInController {
             }
         }
     }
-    public void logIn(Map<String, String> parameter) {
+    public void logInSer(Map<String, String> parameter) {
         String userId = parameter.get("userId");
 
         // 아이디와 비밀번호를 확인하여 로그인 처리

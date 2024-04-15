@@ -5,14 +5,14 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-import static com.dbteam.common.Template.getSqlession;
+import static com.dbteam.common.Template.getSqlSession;
 
 public class VolService {
 
     private VolMapper volMapper;
 
     public boolean deleteVol(int num){
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
 
         volMapper = sqlSession.getMapper(VolMapper.class);
@@ -30,7 +30,7 @@ public class VolService {
     }
 
     public boolean registVol(VolDTO vol){
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         volMapper = sqlSession.getMapper(VolMapper.class);
         int result = volMapper.insertVol(vol);
@@ -46,7 +46,7 @@ public class VolService {
     }
 
     public List<VolDTO> selectVolByTxt(String volTxt) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         volMapper = sqlSession.getMapper(VolMapper.class);
         List<VolDTO> selectVolList = volMapper.selectVolByTxt(volTxt);
@@ -57,7 +57,7 @@ public class VolService {
     }
 
     public List<VolDTO> selectAllVol() {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         volMapper = sqlSession.getMapper(VolMapper.class);
         List<VolDTO> volList = volMapper.selectAllVol();
@@ -69,7 +69,7 @@ public class VolService {
 
     public List<VolDTO> selectVolByUserId(int num) {
 
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         volMapper = sqlSession.getMapper(VolMapper.class);
         List<VolDTO> myVolList = volMapper.selectVolByUserId(num);
