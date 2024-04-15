@@ -15,4 +15,5 @@ public interface VolMapper {
     List<VolDTO> selectAllVol();
 
     List<VolDTO> selectVolByUserId(int num);
+
 }
