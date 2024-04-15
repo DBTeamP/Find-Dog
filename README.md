@@ -64,8 +64,9 @@
 
 
 ## 3. 프로젝트 구조
- ### 기능도 
-  ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/4f4c716b-8de8-4285-8123-83e28b218a67)
+ ### 흐름도 
+  ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/82174047/d564d863-299a-4d79-86d2-120bfa6ac486)
+
  ### 논리 ERD
   ![Untitled](https://github.com/DBTeamP/DBProject/assets/129252557/e212de3f-3da1-4a47-909b-db8e3b45eaea)
  ### 물리 ERD
