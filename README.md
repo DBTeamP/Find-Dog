@@ -68,6 +68,7 @@
   ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/4f4c716b-8de8-4285-8123-83e28b218a67)
 
  ### 물리 ERD
+ ![Untitled (3)](https://github.com/DBTeamP/DBProject/assets/129252557/f5c16821-434f-4d45-8ae0-327348751403)
 
    
 ## 4. 프로그램 기능 및 동작 방식
