@@ -6,7 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-import static com.dbteam.common.Template.getSqlession;
+import static com.dbteam.common.Template.getSqlSession;
+import static com.dbteam.common.Template.getSqlSession;
 
 public class AdoptionService {
     /*
@@ -38,7 +39,7 @@ public class AdoptionService {
 
     //추가
     public boolean registAdoption(AdoptionDTO adoption) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
         int result = adoptionMapper.insertAdoption(adoption);
@@ -57,7 +58,7 @@ public class AdoptionService {
 
     //삭제
     public boolean deleteAdoption(int adoptionNum) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
         int result = adoptionMapper.deleteAdoption(adoptionNum);
@@ -75,7 +76,7 @@ public class AdoptionService {
     //조회
     public List<AdoptionDTO> selectAllMenu() {
 
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);
         List<AdoptionDTO> adoptionList = adoptionMapper.selectAllMenu();
@@ -103,7 +104,7 @@ public class AdoptionService {
 //        }
 
     public List<AdoptionDTO> searchAdoptionByName(String adoptionName) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         try {
             adoptionMapper = sqlSession.getMapper(AdoptionMapper.class);

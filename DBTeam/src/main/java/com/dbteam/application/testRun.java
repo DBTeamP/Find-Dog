@@ -4,6 +4,7 @@ package com.dbteam.application;
 import com.dbteam.xml.adoption.AdoptionController;
 
 import com.dbteam.common.dtopackage.UsersDTO;
+import com.dbteam.xml.dog.DogController;
 import com.dbteam.xml.dog.FindDogMapper;
 import org.apache.ibatis.session.SqlSession;
 
@@ -14,12 +15,12 @@ import java.util.Scanner;
 import static com.dbteam.common.Template.getSqlSession;
 
 public class testRun {
-    private static FindDogMapper findDogMapper; // 필드 선언 위치 변경
-
-    static {
-        SqlSession sqlSession = getSqlSession();
-        findDogMapper = sqlSession.getMapper(FindDogMapper.class);
-    }
+//    private static FindDogMapper findDogMapper; // 필드 선언 위치 변경
+//
+//    static {
+//        SqlSession sqlSession = getSqlSession();
+//        findDogMapper = sqlSession.getMapper(FindDogMapper.class);
+//    }
 
     public static void main(String[] args) {
         welComeDog();
@@ -28,6 +29,7 @@ public class testRun {
     private static void welComeDog() {
         Scanner sc = new Scanner(System.in);
         LogInController logInController = new LogInController(); // LogInController 객체 생성
+
         do {
             System.out.println("====== FINDING DOG =======");
             System.out.println("1. 회원가입");
@@ -264,6 +266,7 @@ public class testRun {
         }while(true);
     }
     private static void pageDog(){
+        DogController dogController = new DogController();
         Scanner sc = new Scanner(System.in);
         do{
             System.out.println("======= DOG =======");
@@ -274,7 +277,7 @@ public class testRun {
             System.out.print("번호를 입력해주세요 : ");
             int no = sc.nextInt();
             switch (no) {
-                case 1: break;
+                case 1: dogController.selectAllProfile();break;
                 case 2: break;
                 case 3: break;
                 case 4: return;
