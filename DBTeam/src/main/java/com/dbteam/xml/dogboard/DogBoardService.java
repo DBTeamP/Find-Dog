@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-import static com.dbteam.common.Template.getSqlession;
+import static com.dbteam.common.Template.getSqlSession;
 
 public class DogBoardService {
 
@@ -13,7 +13,7 @@ public class DogBoardService {
 
     /* 조회 */
     public List<DogBoardDTO> selectAllDogBoard() {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
         List<DogBoardDTO> dogBoardList = dogBoardMapper.selectAllDogBoard();
@@ -25,7 +25,7 @@ public class DogBoardService {
 
     /* 추가 */
     public boolean registDogBoard(DogBoardDTO dogboard) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
         int result = dogBoardMapper.insertDogBoard(dogboard);
@@ -46,7 +46,7 @@ public class DogBoardService {
 
     /* 삭제 */
     public boolean deleteDogBoard(int dogBoardNum) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
         int result = dogBoardMapper.deleteDogBoard(dogBoardNum);
@@ -65,7 +65,7 @@ public class DogBoardService {
 
     /* 검색 */
 //    public void searchDogBoardName(SearchDogBoardName searchDogBoardName) {
-//        SqlSession sqlSession = getSqlession();
+//        SqlSession sqlSession = getSqlSession();
 //        dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
 //
 //        List<DogBoardDTO> dogBoardList = dogBoardMapper.searchDogBoardName(searchDogBoardName);
@@ -83,7 +83,7 @@ public class DogBoardService {
 //    }
     /* 검색 */
     public List<DogBoardDTO> searchDogBoardByName(String dogBoardName){
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         try {
             dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);

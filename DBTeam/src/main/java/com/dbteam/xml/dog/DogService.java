@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-import static com.dbteam.common.Template.getSqlession;
+import static com.dbteam.common.Template.getSqlSession;
 
 
 public class DogService {
@@ -14,7 +14,7 @@ public class DogService {
 
     /* 조회 */
     public List<DogDTO> selectAllProfile() {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         dogMapper = sqlSession.getMapper(DogMapper.class);
         List<DogDTO> dogList = dogMapper.selectAllProfile();
@@ -28,7 +28,7 @@ public class DogService {
     /* 추가 */     /*강아지 프로필 추가할 수 있는 메소드*/
     public boolean registDogProfile(DogDTO dog){
 
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         dogMapper = sqlSession.getMapper(DogMapper.class);
         int result = dogMapper.insertDogProfile(dog);
@@ -49,7 +49,7 @@ public class DogService {
 
     /* 삭제 */
     public boolean deleteDogProfile(int dogNum) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         dogMapper = sqlSession.getMapper(DogMapper.class);
         int result = dogMapper.deleteDogProfile(dogNum);
@@ -68,7 +68,7 @@ public class DogService {
 
     /* 검색 */
 //    public void searchDogKind(SearchDogKind searchDogKind) {
-//        SqlSession sqlSession = getSqlession();
+//        SqlSession sqlSession = getSqlSession();
 //        dogMapper = sqlSession.getMapper(DogMapper.class);
 //
 //        List<DogDTO> dogkindList = dogMapper.searchDogKind(searchDogKind);
@@ -87,7 +87,7 @@ public class DogService {
 
     /* 검색 */
     public List<DogDTO> searchDogByKind(String dogKind) {
-        SqlSession sqlSession = getSqlession();
+        SqlSession sqlSession = getSqlSession();
 
         try {
             dogMapper = sqlSession.getMapper(DogMapper.class);
