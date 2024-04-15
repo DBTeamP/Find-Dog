@@ -1,5 +1,6 @@
 package com.dbteam.application;
 
+import com.dbteam.common.dtopackage.UsersDTO;
 import com.dbteam.xml.dog.FindDogMapper;
 import org.apache.ibatis.session.SqlSession;
 
@@ -34,10 +35,10 @@ public class testRun {
             int no = sc.nextInt();
             switch (no) {
                 case 1:
-                    logInController.registId(insertUser(sc));
+                    logInController.registId(insertUser());
                     break;
                 case 2:
-                    logInPage(sc, logInController);
+                    logInPage();
                     break;
                 case 3:
                     return;
@@ -45,7 +46,8 @@ public class testRun {
         } while (true);
     }
 
-    private static Map<String, String> insertUser(Scanner sc) {
+    private static Map<String, String> insertUser() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("아이디를 입력해주세요: ");
         String userId = sc.next();
         System.out.print("이름을 입력해주세요: ");
@@ -63,7 +65,9 @@ public class testRun {
         return parameter;
     }
 
-    private static void logInPage(Scanner sc, LogInController logInController) {
+    private static Map<String, String> logInPage() {
+        Scanner sc = new Scanner(System.in);
+        LogInController logInController = new LogInController(); // LogInController 객체 생성
         System.out.println("====== LOGIN ======");
         System.out.println("1. 보호 단체 로그인");
         System.out.println("2. 일반 유저 로그인");
@@ -72,21 +76,27 @@ public class testRun {
         int no = sc.nextInt();
         switch (no) {
             case 1:
+                logInController.logInSer(logIn());
                 break;
             case 2:
-                logIn(sc, logInController);
+                logInController.logInSer(logIn());
                 break;
+
             case 3:
-                return;
+                return null;
         }
+        return null;
     }
 
-    private static void logIn(Scanner sc, LogInController logInController) {
+    private static Map<String, String> logIn() {
+        LogInController logInController = new LogInController();
+        Scanner sc = new Scanner(System.in);
         System.out.println("아이디를 입력해주세요: ");
         String userId = sc.next();
         Map<String, String> parameter = new HashMap<>();
         parameter.put("userId", userId);
-        logInController.logIn(parameter);
+        logInController.logInSer(parameter);
+        return parameter;
     }
 
     static void pageUserMain() {
@@ -102,13 +112,16 @@ public class testRun {
             int no = sc.nextInt();
             switch (no) {
                 case 1:
+                    pageAdoption();
                     break;
                 case 2:
                     pageFindingDog();
                     break;
                 case 3:
+                    volPage();
                     break;
                 case 4:
+                    pageDogBoard();
                     break;
                 case 5:
                     return;

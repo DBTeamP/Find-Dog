@@ -1,6 +1,7 @@
 
 package com.dbteam.application;
 
+import com.dbteam.common.dtopackage.FindDogDTO;
 import com.dbteam.common.dtopackage.VolDTO;
 
 import java.util.List;
@@ -20,7 +21,13 @@ public class PrintResult {
                 break;
         }
     }
+    public void printDogList(List<FindDogDTO> findDogDTOList) {
+        System.out.println("========== 조회한 리스트 ==========");
 
+        for (FindDogDTO findDogDTO : findDogDTOList) {
+            System.out.println(findDogDTO);
+        }
+    }
     public void printErrorMessage(String errorCode) {
         String errorMessage = "";
         switch (errorCode){
