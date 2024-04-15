@@ -49,19 +49,19 @@ public class LogInService {
     }
 
 
-    public List<UsersDTO> isAdminUser(String userId) {
+    public UsersDTO isAdminUser(String userId) {
         SqlSession sqlSession = getSqlSession();
         loginMapper = sqlSession.getMapper(LoginMapper.class);
-        List<UsersDTO> adminInfo = loginMapper.logInAdmin(userId);
+        UsersDTO adminInfo = loginMapper.logInAdmin(userId);
 
         sqlSession.close();
         return adminInfo;
     }
 
-    public List<UsersDTO> isUser(String userId) {
+    public UsersDTO isUser(String userId) {
         SqlSession sqlSession = getSqlSession();
         loginMapper = sqlSession.getMapper(LoginMapper.class);
-        List<UsersDTO> userInfo = loginMapper.logInUser(userId);
+        UsersDTO userInfo = loginMapper.logInUser(userId);
 
         sqlSession.close();
         return userInfo;

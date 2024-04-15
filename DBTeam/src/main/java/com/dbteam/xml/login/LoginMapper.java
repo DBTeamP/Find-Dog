@@ -10,8 +10,8 @@ public interface LoginMapper {
 
     UsersDTO logIn(String userId);
 
-    List<UsersDTO> logInAdmin(String userId);
+    UsersDTO logInAdmin(String userId);
 
-    List<UsersDTO> logInUser(String userId);
+    UsersDTO logInUser(String userId);
 
 }

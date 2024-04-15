@@ -42,6 +42,7 @@ public class DogController {
         dog.setDogKind(dogKind);
         dog.setDogAge(dogAge);
 
+
         if (dogService.registDogProfile(dog)){
             printResult.printSuccessMessage("insert");
         } else {

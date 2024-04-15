@@ -7,6 +7,7 @@ import com.dbteam.xml.login.PrintResult;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class LogInController {
 
@@ -44,37 +45,52 @@ public class LogInController {
     }
 
 
-    public String lonInAdmin(Map<String, String> parameter) {
-        String userId = parameter.get("userId");
-        String rights = "Y";
+    public String lonInAdmin(Map<String, Object> parameter) {
+        String userId = (String)parameter.get("userId");
+        String rights = "";
 
-        List<UsersDTO> searchAdminId = logInService.isAdminUser(userId);
+        UsersDTO searchAdminId = logInService.isAdminUser(userId);
 
-        if("Y".equals(searchAdminId.get(0).getAdminRights())){
-            System.out.println("관리자 권한 로그인에 성공하였습니다.");
+        if(searchAdminId != null){
+            System.out.println("관리자 로그인에 성공하였습니다.");
+            rights = "Y";
 
+            parameter.put("userNum", searchAdminId.getUserNum());
             return rights;
-        } else{
+        }else{
             System.out.println("잘못 입력하였습니다.");
-            rights = "";
             return rights;
         }
     }
 
-    public String logInUser(Map<String, String> parameter) {
-        String userId = parameter.get("userId");
-        String rights = "N";
-        List<UsersDTO> searchUserId = logInService.isUser(userId);
+    public String logInUser(Map<String, Object> parameter) {
+        String userId = (String)parameter.get("userId");
+        String rights = "";
+        UsersDTO searchUserId = logInService.isUser(userId);
 
-
-        if("N".equals(searchUserId.get(0).getAdminRights())){
+        if(searchUserId != null){
             System.out.println("로그인에 성공하였습니다.");
+            rights = "N";
+            parameter.put("userNum", searchUserId.getUserNum());
             return rights;
         } else{
             System.out.println("잘못 입력하였습니다.");
-            rights = "";
             return rights;
         }
+//        try {
+//            if ("N".equals(searchUserId.get(0).getAdminRights())) {
+//                System.out.println("로그인에 성공하였습니다.");
+//                return rights;
+//            } else {
+//                System.out.println("잘못 입력하였습니다.");
+//                rights = "";
+//                return rights;
+//            }
+//        } catch(IndexOutOfBoundsException e){
+//            System.out.println("잘못 입력하였습니다.");
+//            rights = "";
+//            return rights;
+//        }
     }
 
 }

@@ -1,6 +1,9 @@
 package com.dbteam.xml.dogboard;
 
 import com.dbteam.common.dtopackage.DogBoardDTO;
+import com.dbteam.xml.dog.DogController;
+import com.dbteam.xml.dog.DogService;
+import com.dbteam.xml.login.LoginView;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -28,7 +31,12 @@ public class DogBoardService {
         SqlSession sqlSession = getSqlSession();
 
         dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
-        int result = dogBoardMapper.insertDogBoard(dogboard);
+        DogService dogService = new DogService();
+        int result = 0;
+
+        if(dogService.isDogExist(dogboard.getDogNum())){
+             result = dogBoardMapper.insertDogBoard(dogboard);
+        }
 
         if(result > 0){
             sqlSession.commit();
@@ -38,8 +46,7 @@ public class DogBoardService {
 
         sqlSession.close();
 
-        return result > 0 ? true : false;
-
+        return result > 0;
     }
 
     /* 수정 */
@@ -48,8 +55,10 @@ public class DogBoardService {
     public boolean deleteDogBoard(int dogBoardNum) {
         SqlSession sqlSession = getSqlSession();
 
+        int userNum = LoginView.getUserNum();
+        
         dogBoardMapper = sqlSession.getMapper(DogBoardMapper.class);
-        int result = dogBoardMapper.deleteDogBoard(dogBoardNum);
+        int result = dogBoardMapper.deleteDogBoard(dogBoardNum, userNum);
 
         if(result > 0) {
             sqlSession.commit();

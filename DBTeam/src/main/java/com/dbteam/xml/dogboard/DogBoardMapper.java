@@ -1,6 +1,7 @@
 package com.dbteam.xml.dogboard;
 
 import com.dbteam.common.dtopackage.DogBoardDTO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface DogBoardMapper {
     /* 수정 */
 
     /* 삭제 */
-    int deleteDogBoard(int dogBoardNum);
+    int deleteDogBoard(@Param("dogBoardNum")int dogBoardNum, @Param("userNum")int userNum);
 
     /* 검색 */
 //    List<DogBoardDTO> searchDogBoardName(SearchDogBoardName searchDogBoardName);

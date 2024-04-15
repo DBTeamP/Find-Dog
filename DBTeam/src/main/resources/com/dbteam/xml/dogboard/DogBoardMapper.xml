@@ -40,8 +40,9 @@
     <!-- 삭제 -->
     <delete id="deleteDogBoard" parameterType="_int">
         DELETE
-        FROM dog_board
-        WHERE dog_board_num = #{ dogBoardNum }
+        FROM dog_board b
+        WHERE b.dog_num IN (SELECT dog_num FROM dog WHERE admin_num = #{userNum})
+        AND b.dog_board_num = #{ dogBoardNum }
     </delete>
 
     <!-- 검색 -->

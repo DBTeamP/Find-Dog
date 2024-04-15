@@ -59,5 +59,9 @@
         WHERE dog_kind LIKE CONCAT('%', #{dogKind}, '%')
     </select>
 
-
+    <select id="isDogExist" parameterType="_int" resultType="_int">
+        SELECT count(*)
+        FROM dog
+        WHERE dog_num = #{ dogNum }
+    </select>
 </mapper>
