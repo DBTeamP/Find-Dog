@@ -3,8 +3,7 @@ package com.dbteam.common.dtopackage;
 public class VolPDTO {
     private int userNum;
     private int volNum;
-
-
+    
     public VolPDTO() {
     }
 
