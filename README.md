@@ -68,7 +68,7 @@
   ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/4f4c716b-8de8-4285-8123-83e28b218a67)
 
  ### 물리 ERD
-  ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/91a8c7ac-d1f0-4419-8a59-bd85f3e1227a/ee8cf1da-8db2-4e5f-bede-e67f7c8b01ca/Untitled.png)
+
    
 ## 4. 프로그램 기능 및 동작 방식
 #### 1.회원 관리 기능
