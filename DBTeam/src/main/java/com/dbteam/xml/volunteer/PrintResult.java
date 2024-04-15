@@ -21,6 +21,7 @@ public class PrintResult {
                 break;
         }
     }
+
 //    public void printDogList(List<FindDogDTO> findDogDTOList) {
 //        System.out.println("========== 조회한 리스트 ==========");
 //

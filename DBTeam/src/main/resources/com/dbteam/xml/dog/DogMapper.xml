@@ -59,4 +59,5 @@
         WHERE dog_kind LIKE CONCAT('%', #{dogKind}, '%')
     </select>
 
+
 </mapper>

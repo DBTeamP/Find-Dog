@@ -18,7 +18,6 @@
     </resultMap>
 
 
-
     <insert id="insertVolP" parameterType="com.dbteam.common.dtopackage.VolPDTO">
         INSERT INTO volunteer_person(
              user_num

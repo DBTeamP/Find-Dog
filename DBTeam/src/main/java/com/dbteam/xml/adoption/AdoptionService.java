@@ -10,6 +10,7 @@ import static com.dbteam.common.Template.getSqlSession;
 import static com.dbteam.common.Template.getSqlSession;
 
 public class AdoptionService {
+
     /*
     private static AdoptionMapper adoptionMapper;
 

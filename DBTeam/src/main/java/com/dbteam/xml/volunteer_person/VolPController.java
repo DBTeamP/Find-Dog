@@ -17,7 +17,6 @@ public class VolPController {
         printResult = new PrintResult();
     }
 
-
     public void insertVolP(Map<String, String> parameter) {
         int userNum = Integer.parseInt(parameter.get("userNum"));
         int volNum = Integer.parseInt(parameter.get("volNum"));

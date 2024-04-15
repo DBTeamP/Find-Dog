@@ -84,7 +84,6 @@ public class VolController {
         // 요리사 요리 -> 요리(DB)를 직접 접근하는 역할
     }
 
-
     public void searchByUserNum(int userNum) {
         int num = userNum;
         List<VolDTO> myVolList = volService.selectVolByUserId(num);

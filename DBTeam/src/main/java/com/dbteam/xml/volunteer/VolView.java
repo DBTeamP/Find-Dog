@@ -104,5 +104,4 @@ public class VolView {
         return parameter;
     }
 
-
 }

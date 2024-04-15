@@ -51,7 +51,6 @@ public class VolPService {
         return result > 0 ? true : false;
     }
 
-
     public List<CountDTO> selectVolP(List<String> volNameList) {
         SqlSession sqlSession = getSqlSession();
         try {

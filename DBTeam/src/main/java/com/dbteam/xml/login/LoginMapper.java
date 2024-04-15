@@ -13,4 +13,5 @@ public interface LoginMapper {
     List<UsersDTO> logInAdmin(String userId);
 
     List<UsersDTO> logInUser(String userId);
+
 }

@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AdoptionView {
-
     public static void pageAdoption(){
         Scanner sc = new Scanner(System.in);
         AdoptionController adoptionController = new AdoptionController();

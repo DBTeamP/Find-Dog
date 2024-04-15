@@ -43,7 +43,6 @@ public class FindDogService {
 
     }
 
-
     public List<FindDogDTO> selectDogByName(String findName) {
         SqlSession sqlSession = getSqlSession();
 

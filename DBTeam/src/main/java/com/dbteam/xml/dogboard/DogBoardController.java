@@ -27,6 +27,7 @@ public class DogBoardController {
         }
     }
 
+
     /* 추가 */
     public void registDogBoard(Map<String, String> parameter) {
        /* dogBoardNum,

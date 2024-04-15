@@ -21,4 +21,5 @@ public interface DogBoardMapper {
 //    List<DogBoardDTO> searchDogBoardName(SearchDogBoardName searchDogBoardName);
     List<DogBoardDTO> searchDogBoardByName(String dogBoardName);
 
+
 }

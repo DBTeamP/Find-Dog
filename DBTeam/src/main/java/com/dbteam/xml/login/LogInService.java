@@ -66,4 +66,5 @@ public class LogInService {
         sqlSession.close();
         return userInfo;
     }
+
 }

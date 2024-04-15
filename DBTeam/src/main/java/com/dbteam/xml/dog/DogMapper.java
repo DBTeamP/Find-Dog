@@ -21,4 +21,5 @@ public interface DogMapper {
 //    List<DogDTO> searchDogKind(SearchDogKind searchDogKind);
     List<DogDTO> searchDogByKind(String dogKind);
 
+
 }

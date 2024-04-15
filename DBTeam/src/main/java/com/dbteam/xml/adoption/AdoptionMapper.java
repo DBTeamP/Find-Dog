@@ -5,7 +5,6 @@ import com.dbteam.common.dtopackage.AdoptionDTO;
 import java.util.List;
 
 public interface AdoptionMapper {
-
     //추가
     int insertAdoption(AdoptionDTO adoption);
 

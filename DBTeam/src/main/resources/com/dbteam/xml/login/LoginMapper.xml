@@ -25,7 +25,6 @@
         WHERE user_id = #{ userId } AND admin_rights = 'N'
     </select>
 
-
     <insert id="insertUser" parameterType="com.dbteam.common.dtopackage.UsersDTO">
         INSERT INTO users (
                             user_name

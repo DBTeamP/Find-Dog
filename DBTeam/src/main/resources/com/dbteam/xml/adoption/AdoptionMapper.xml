@@ -11,6 +11,7 @@
         <result property="userNum" column="user_num"/>
     </resultMap>
 
+
     <!-- -->
     <insert id="insertAdoption" parameterType="com.dbteam.common.dtopackage.AdoptionDTO">
         INSERT INTO adoption (

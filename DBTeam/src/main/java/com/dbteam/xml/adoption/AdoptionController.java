@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AdoptionController {
-
     private final AdoptionService adoptionService;
     private final PrintResult printResult;
 

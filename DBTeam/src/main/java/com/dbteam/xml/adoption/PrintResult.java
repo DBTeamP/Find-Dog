@@ -5,7 +5,6 @@ import com.dbteam.common.dtopackage.AdoptionDTO;
 import java.util.List;
 
 public class PrintResult {
-
     public void printSuccessMessage(String successCode) {
         String successMessage = "";
 
