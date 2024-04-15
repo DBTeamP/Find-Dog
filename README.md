@@ -37,8 +37,10 @@
 
 - ### 버전 및 이슈관리
   -  Github, Github Issues, Github Project
+  -  <img alt="" src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
+  - <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 - ### 협업 툴
-  - Discord, Notion, Github
+  
   - <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
   - <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
   - <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
@@ -90,12 +92,13 @@
 -
 #### 4.유기견 봉사활동 관리
 - 봉사 일정 추가,삭제
-- 봉사글 상세 보기
-- 내가 작석한 글 보기,
+- 봉사글 봉사활동명, 날짜 ,내용 ,지역 상세 보기
+- 내가 작석한 글 보기
+- 봉사활동명으로 각 인원 수 체크하고 그에 대한 추가, 삭제
 #### 5.입양 일지
-- 
-- 
--
+- 입양관련 제목,입양 강아지 내용, 입양자정보 입력
+- 입양 추가, 삭제
+
 
 
 
