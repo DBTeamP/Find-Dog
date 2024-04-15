@@ -7,9 +7,7 @@ public class VolDTO {
     private int volNum;
     private String volName;
     private String volTxt;
-
-    private Date volDate;
-  
+    private java.util.Date volDate;
     private int managerNum;
 
     public VolDTO() {
@@ -26,24 +24,31 @@ public class VolDTO {
     public int getVolNum() {
         return volNum;
     }
+
     public void setVolNum(int volNum) {
         this.volNum = volNum;
     }
+
     public String getVolName() {
         return volName;
     }
+
     public void setVolName(String volName) {
         this.volName = volName;
     }
+
     public String getVolTxt() {
         return volTxt;
     }
+
     public void setVolTxt(String volTxt) {
         this.volTxt = volTxt;
     }
+
     public Date getVolDate() {
         return volDate;
     }
+
     public void setVolDate(Date volDate) {
         this.volDate = volDate;
     }
@@ -51,9 +56,11 @@ public class VolDTO {
     public int getManagerNum() {
         return managerNum;
     }
+
     public void setManagerNum(int managerNum) {
         this.managerNum = managerNum;
     }
+
     @Override
     public String toString() {
         return "VolDTO{" +
@@ -64,4 +71,5 @@ public class VolDTO {
                 ", managerNum=" + managerNum +
                 '}';
     }
+
 }

@@ -16,12 +16,15 @@ public class VolPDTO {
     public int getUserNum() {
         return userNum;
     }
+
     public void setUserNum(int userNum) {
         this.userNum = userNum;
     }
+
     public int getVolNum() {
         return volNum;
     }
+
     public void setVolNum(int volNum) {
         this.volNum = volNum;
     }
@@ -34,3 +37,4 @@ public class VolPDTO {
                 '}';
     }
 }
+

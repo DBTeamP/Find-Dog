@@ -20,24 +20,31 @@ public class FindDogDTO {
     public int getFindNum() {
         return findNum;
     }
+
     public void setFindNum(int findNum) {
         this.findNum = findNum;
     }
+
     public String getFindName() {
         return findName;
     }
+
     public void setFindName(String findName) {
         this.findName = findName;
     }
+
     public String getFindTxt() {
         return findTxt;
     }
+
     public void setFindTxt(String findTxt) {
         this.findTxt = findTxt;
     }
+
     public int getUserNum() {
         return userNum;
     }
+
     public void setUserNum(int userNum) {
         this.userNum = userNum;
     }
@@ -52,3 +59,4 @@ public class FindDogDTO {
                 '}';
     }
 }
+

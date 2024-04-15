@@ -1,18 +1,30 @@
 package com.dbteam.application;
 
 import com.dbteam.common.dtopackage.UsersDTO;
+import com.dbteam.xml.dog.FindDogMapper;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static com.dbteam.common.Template.getSqlSession;
+
 public class testRun {
+    private static FindDogMapper findDogMapper; // 필드 선언 위치 변경
+
+    static {
+        SqlSession sqlSession = getSqlSession();
+        findDogMapper = sqlSession.getMapper(FindDogMapper.class);
+    }
+
     public static void main(String[] args) {
         welComeDog();
     }
 
-    private static void welComeDog(){
+    private static void welComeDog() {
         Scanner sc = new Scanner(System.in);
+        LogInController logInController = new LogInController(); // LogInController 객체 생성
         do {
             System.out.println("====== FINDING DOG =======");
             System.out.println("1. 회원가입");
@@ -22,17 +34,40 @@ public class testRun {
 
             int no = sc.nextInt();
             switch (no) {
-                case 1: break;
-                case 2: logInPage(); break;
-                case 3: return;
+                case 1:
+                    logInController.registId(insertUser());
+                    break;
+                case 2:
+                    logInPage();
+                    break;
+                case 3:
+                    return;
             }
-
-        } while(true);
-
+        } while (true);
     }
 
-    private static void logInPage(){
+    private static Map<String, String> insertUser() {
         Scanner sc = new Scanner(System.in);
+        System.out.print("아이디를 입력해주세요: ");
+        String userId = sc.next();
+        System.out.print("이름을 입력해주세요: ");
+        String userName = sc.next();
+        System.out.print("전화번호를 입력해주세요: ");
+        String userPhone = sc.next();
+        System.out.print("지역번호를 입력해주세요: ");
+        int regionNum = sc.nextInt();
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("userId", userId);
+        parameter.put("userName", userName);
+        parameter.put("userPhone", userPhone);
+        parameter.put("regionNum", String.valueOf(regionNum));
+
+        return parameter;
+    }
+
+    private static Map<String, String> logInPage() {
+        Scanner sc = new Scanner(System.in);
+        LogInController logInController = new LogInController(); // LogInController 객체 생성
         System.out.println("====== LOGIN ======");
         System.out.println("1. 보호 단체 로그인");
         System.out.println("2. 일반 유저 로그인");
@@ -40,12 +75,31 @@ public class testRun {
         System.out.print("번호를 입력해주세요 : ");
         int no = sc.nextInt();
         switch (no) {
-            case 1: pageAdminMain(); break;
-            case 2: pageUserMain(); break;
-            case 3: return;
+            case 1:
+                logInController.logInSer(logIn());
+                break;
+            case 2:
+                logInController.logInSer(logIn());
+                break;
+
+            case 3:
+                return null;
         }
+        return null;
     }
-    private static void pageUserMain(){
+
+    private static Map<String, String> logIn() {
+        LogInController logInController = new LogInController();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("아이디를 입력해주세요: ");
+        String userId = sc.next();
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("userId", userId);
+        logInController.logInSer(parameter);
+        return parameter;
+    }
+
+    static void pageUserMain() {
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("======= FINDING DOG MAIN =======");
@@ -57,13 +111,22 @@ public class testRun {
             System.out.print("번호를 입력해주세요 : ");
             int no = sc.nextInt();
             switch (no) {
-                case 1: pageAdoption(); break;
-                case 2: pageFindingDog(); break;
-                case 3: volPage();break;
-                case 4: pageDogBoard();break;
-                case 5: return;
+                case 1:
+                    pageAdoption();
+                    break;
+                case 2:
+                    pageFindingDog();
+                    break;
+                case 3:
+                    volPage();
+                    break;
+                case 4:
+                    pageDogBoard();
+                    break;
+                case 5:
+                    return;
             }
-        }while(true);
+        } while (true);
     }
 
     private static void pageAdoption(){
@@ -83,9 +146,10 @@ public class testRun {
         }while(true);
     }
 
-    private static void pageFindingDog(){
+    private static void pageFindingDog() {
         Scanner sc = new Scanner(System.in);
-        do{
+        FindDogController findDogController = new FindDogController();
+        do {
             System.out.println("======= FINDING DOG =======");
             System.out.println("1. 미아견 확인하기");
             System.out.println("2. 미아견 등록하기");
@@ -93,14 +157,87 @@ public class testRun {
             System.out.print("번호를 입력해주세요 : ");
             int no = sc.nextInt();
             switch (no) {
-                case 1: break;
-                case 2: break;
-                case 3: return;
+                case 1:
+                    findingDog();
+                    break;
+                case 2:
+                    findDogController.registerDog(inputDog());
+                    break;
+
+                case 3:
+                    return;
+                default:
+                    System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
             }
-        }while(true);
+        } while (true);
     }
 
-    private static void pageAdminMain(){
+    private static Map<String, String> inputDog() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("강아지 이름을 입력하세요: ");
+        String findName = sc.nextLine();
+        System.out.print("강아지 정보를 입력하세요: ");
+        String findTxt = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("findName", findName);
+        parameter.put("findTxt", findTxt);
+
+        return parameter;
+    }
+
+
+    private static void findingDog() {
+        Scanner sc = new Scanner(System.in);
+        FindDogController findDogController = new FindDogController();
+
+        do {
+            System.out.println("======= FINDING DOG =======");
+            System.out.println("1. 전체 목록 보기");
+            System.out.println("2. 이름으로 찾기");
+            System.out.println("3. 이전 화면으로 이동");
+            System.out.print("번호를 입력해주세요 : ");
+            int no = sc.nextInt();
+            switch (no) {
+                case 1:
+                    findDogController.selectAllDog();
+                    break;
+                case 2:
+                    findDogController.findSearchDog(inputFindName());
+                    // view(지금여기) -> controller -> service에서 mapper-mapping -> controller -> view
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
+            }
+        } while (true);
+    }
+
+    private static Map<String, String> inputFindName() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("이름을 입력해주세요 : ");
+        String findName = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("findName", findName);
+
+        return parameter;
+    }
+
+    private static FindSearchDog ffindsearchDog() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("검색할 강아지의 이름을 입력하세요 : ");
+        String value = sc.nextLine();
+
+        return new FindSearchDog(value);
+
+    }
+
+
+
+    static void pageAdminMain(){
         Scanner sc = new Scanner(System.in);
         do{
             System.out.println("======= FINDING GROUP MAIN =======");
@@ -118,7 +255,6 @@ public class testRun {
             }
         }while(true);
     }
-
     private static void pageDog(){
         Scanner sc = new Scanner(System.in);
         do{
@@ -138,6 +274,7 @@ public class testRun {
         } while(true);
     }
 
+  
     private static void pageDogBoard(){
         Scanner sc = new Scanner(System.in);
         do{
@@ -156,7 +293,6 @@ public class testRun {
             }
         }while(true);
     }
-
   
     private static void volPage(){
         //권한에 따른 추가 삭제 제한 조정해야함
@@ -172,13 +308,11 @@ public class testRun {
             System.out.println("====== VOLUNTEER ======");
             System.out.println("1. 봉사 일정 추가");
             System.out.println("2. 봉사 게시글 보기");
-
             System.out.println("3. 봉사글 상세 보기");
             System.out.println("4. 봉사 일정 삭제");
             System.out.println("5. 각 게시글 별 인원 확인");
             System.out.println("6. 내가 작성한 글 보기");
             System.out.println("7. 이전 화면으로 이동");
-
             System.out.print("번호를 입력해주세요 : ");
             int no = sc.nextInt();
 
@@ -218,6 +352,17 @@ public class testRun {
         return parameter;
     }
 
+    private static Map<String, String> inputVolTxt(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("봉사 제목을 입력하세요 : ");
+        String volTxt = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("volTxt",volTxt);
+
+        return parameter;
+    }
+
     private static Map<String, String> inputVol(){
         Scanner sc = new Scanner(System.in);
         System.out.print("봉사활동 제목을 입력하세요 : ");
@@ -228,9 +373,7 @@ public class testRun {
         String volDate = sc.nextLine();
         System.out.print("봉사활동 지역을 입력하세요 : ");
         String regionNum=sc.nextLine();
-
         System.out.print("봉사활동 진행 단체의 번호를 입력하세요 : ");
-
         String managerNum=sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
@@ -243,3 +386,4 @@ public class testRun {
         return parameter;
     }
 }
+

@@ -20,24 +20,31 @@ public class DogBoardDTO {
     public int getDogBoardNum() {
         return dogBoardNum;
     }
+
     public void setDogBoardNum(int dogBoardNum) {
         this.dogBoardNum = dogBoardNum;
     }
+
     public String getDogBoardName() {
         return dogBoardName;
     }
+
     public void setDogBoardName(String dogBoardName) {
         this.dogBoardName = dogBoardName;
     }
+
     public String getDogBoardTxt() {
         return dogBoardTxt;
     }
+
     public void setDogBoardTxt(String dogBoardTxt) {
         this.dogBoardTxt = dogBoardTxt;
     }
+
     public int getDogNum() {
         return dogNum;
     }
+
     public void setDogNum(int dogNum) {
         this.dogNum = dogNum;
     }
@@ -52,3 +59,4 @@ public class DogBoardDTO {
                 '}';
     }
 }
+

@@ -23,24 +23,31 @@ public class DogDTO {
     public int getDogNum() {
         return dogNum;
     }
+
     public void setDogNum(int dogNum) {
         this.dogNum = dogNum;
     }
+
     public String getDogName() {
         return dogName;
     }
+
     public void setDogName(String dogName) {
         this.dogName = dogName;
     }
+
     public String getDogKind() {
         return dogKind;
     }
+
     public void setDogKind(String dogKind) {
         this.dogKind = dogKind;
     }
+
     public int getDogAge() {
         return dogAge;
     }
+
     public void setDogAge(int dogAge) {
         this.dogAge = dogAge;
     }
@@ -64,3 +71,4 @@ public class DogDTO {
                 '}';
     }
 }
+

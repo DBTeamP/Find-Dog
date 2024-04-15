@@ -24,30 +24,39 @@ public class UsersDTO {
     public int getUserNum() {
         return userNum;
     }
+
     public void setUserNum(int userNum) {
         this.userNum = userNum;
     }
+
     public String getUserName() {
         return userName;
     }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
     public String getUserId() {
         return userId;
     }
+
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
     public String getUserPhone() {
         return userPhone;
     }
+
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
+
     public int getRegionNum() {
         return regionNum;
     }
+
     public void setRegionNum(int regionNum) {
         this.regionNum = regionNum;
     }
@@ -72,3 +81,4 @@ public class UsersDTO {
                 '}';
     }
 }
+

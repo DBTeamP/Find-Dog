@@ -20,24 +20,31 @@ public class AdoptionDTO {
     public int getAdoptionNum() {
         return adoptionNum;
     }
+
     public void setAdoptionNum(int adoptionNum) {
         this.adoptionNum = adoptionNum;
     }
+
     public String getAdoptionName() {
         return adoptionName;
     }
+
     public void setAdoptionName(String adoptionName) {
         this.adoptionName = adoptionName;
     }
+
     public String getAdoptionTxt() {
         return adoptionTxt;
     }
+
     public void setAdoptionTxt(String adoptionTxt) {
         this.adoptionTxt = adoptionTxt;
     }
+
     public int getUserNum() {
         return userNum;
     }
+
     public void setUserNum(int userNum) {
         this.userNum = userNum;
     }
@@ -52,3 +59,4 @@ public class AdoptionDTO {
                 '}';
     }
 }
+

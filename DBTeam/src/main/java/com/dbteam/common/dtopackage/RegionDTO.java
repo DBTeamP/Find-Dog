@@ -15,6 +15,7 @@ public class RegionDTO {
     public int getRegionNum() {
         return regionNum;
     }
+
     public void setRegionNum(int regionNum) {
         this.regionNum = regionNum;
     }
@@ -35,3 +36,4 @@ public class RegionDTO {
                 '}';
     }
 }
+
