@@ -1,9 +1,10 @@
 package com.dbteam.common.dtopackage;
 
+//userRegionNum 삭제
 public class VolPDTO {
     private int userNum;
     private int volNum;
-    
+
     public VolPDTO() {
     }
 
@@ -28,7 +29,6 @@ public class VolPDTO {
     public void setVolNum(int volNum) {
         this.volNum = volNum;
     }
-
 
 
     @Override
