@@ -266,8 +266,8 @@ public class testRun {
         }while(true);
     }
     private static void pageDog(){
-        DogController dogController = new DogController();
         Scanner sc = new Scanner(System.in);
+        DogController dogController = new DogController();
         do{
             System.out.println("======= DOG =======");
             System.out.println("1. 유기견 보러가기");
