@@ -1,3 +1,4 @@
+
 package com.dbteam.common;
 
 import org.apache.ibatis.io.Resources;
@@ -10,7 +11,7 @@ import java.io.InputStream;
 
 public class Template {
     private static SqlSessionFactory sqlSessionFactory;
-    public SqlSession getSqlession(){
+    public static SqlSession getSqlession(){
         if(sqlSessionFactory == null){
             String resource = "config/mybatis-config.xml";
             try {

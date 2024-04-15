@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbteam.xml.dog.FindDogMapper">
+
+    <resultMap id="findDogResultMap" type="com.dbteam.common.dtopackage.FindDogDTO">
+        <id property="findNum" column="find_num"/>
+        <result property="findName" column="find_name"/>
+        <result property="findTxt" column="find_txt"/>
+        <result property="userNum" column="user_num"/>
+    </resultMap>
+    <select id="selectAllDog" parameterType="com.dbteam.common.dtopackage.FindDogDTO" resultMap="findDogResultMap">
+        SELECT  find_num
+            , find_name
+            , find_txt
+            , user_num
+        FROM find_dog
+    </select>
+    <select id="findSearchDog" parameterType="string" resultMap="findDogResultMap">
+        SELECT *
+        FROM find_dog
+        WHERE find_name = #{ findName };
+    </select>
+
+    <select id="selectDogByName" parameterType="com.dbteam.common.dtopackage.FindDogDTO" resultMap="findDogResultMap">
+        SELECT find_num
+            , find_name
+            , find_txt
+            , user_num
+        FROM find_dog
+        WHERE find_name LIKE CONCAT('%', #{ findName }, '%')
+    </select>
+
+    <insert id="insertDog" parameterType="com.dbteam.common.dtopackage.FindDogDTO">
+        INSERT INTO find_dog (
+                                find_name
+                                , find_txt
+        )
+        VALUES (#{ findName }, #{ findTxt });
+    </insert>
+
+</mapper>
