@@ -13,6 +13,18 @@
         <result property="adminRights" column="admin_rights"/>
 
     </resultMap>
+    <select id="logInAdmin" parameterType="com.dbteam.common.dtopackage.UsersDTO" resultMap="logInResultMap">
+        SELECT user_id
+        FROM users
+        WHERE user_id = #{ userId } AND admin_rights = 'Y'
+    </select>
+
+    <select id="logInUser" parameterType="com.dbteam.common.dtopackage.UsersDTO" resultMap="logInResultMap">
+        SELECT user_id
+        FROM users
+        WHERE user_id = #{ userId } AND admin_rights = 'N'
+    </select>
+
     <insert id="insertUser" parameterType="com.dbteam.common.dtopackage.UsersDTO">
         INSERT INTO users (
                             user_name

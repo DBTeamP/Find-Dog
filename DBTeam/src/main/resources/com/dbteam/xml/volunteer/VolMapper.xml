@@ -63,4 +63,5 @@
         FROM volunteer
         WHERE manager_num = #{ num }
     </select>
+
 </mapper>
