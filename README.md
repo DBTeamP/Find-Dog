@@ -38,9 +38,11 @@
 - ### 버전 및 이슈관리
   -  Github, Github Issues, Github Project
 - ### 협업 툴
-  - Discord, Notion, Github 
- 
- 
+  - Discord, Notion, Github
+  - <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
+  - <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+  - <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+
 
 ##   개발 방향
 - 유기견 관련 활동들을 관리하는 프로그램인 "FindDog"은 유기견 보호 및 입양을 장려하고,
