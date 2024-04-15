@@ -1,48 +1,52 @@
+
 package com.dbteam.application;
 
-import com.dbteam.common.dtopackage.FindDogDTO;
+import com.dbteam.common.dtopackage.VolDTO;
 
 import java.util.List;
 
 public class PrintResult {
     public void printSuccessMessage(String successCode) {
         String successMessage = "";
-        switch (successCode) {
-            case "insert":
-                successMessage = "로그 유저 등록에 성공했어요";
+        switch (successCode){
+            case "insert" : successMessage = "봉사활동 추가에 성공했습니다.";
+                System.out.println(successMessage);
+                break;
+            case "delete" : successMessage = "봉사활동 삭제를 성공하셨습니다.";
+                System.out.println(successMessage);
+                break;
+            case "select" : successMessage = "봉사활동 검색에 성공하셨습니다.";
+                System.out.println(successMessage);
                 break;
         }
-        System.out.println(successMessage);
     }
 
-    public void printDogList(List<FindDogDTO> findDogDTOList) {
-        System.out.println("========== 조회한 리스트 ==========");
-
-        for (FindDogDTO findDogDTO : findDogDTOList) {
-            System.out.println(findDogDTO);
-        }
-    }
-
-    public void printDogSuccessMessage(String successCode) {
-        String successMessage = "";
-        switch (successCode) {
-            case "insert":
-                successMessage = "등록에 성공했어요";
-                break;
-        }
-        System.out.println(successMessage);
-    }
-    /* 실패 시 출력 메세지 */
     public void printErrorMessage(String errorCode) {
         String errorMessage = "";
-
-        switch (errorCode) {
-            case "insertDog" : errorMessage = "실패."; break;
-            case "findDogByName" : errorMessage = "실패."; break;
-
+        switch (errorCode){
+            case "search" : errorMessage = "검색에 실패했습니다.";
+                System.out.println(errorMessage);
+                break;
+            case "searchByUserId" : errorMessage = "존재하지 않은 id 입니다.";
+                System.out.println(errorMessage);
+                break;
         }
 
-        System.out.println(errorMessage);
     }
 
+    public void printVol(List<VolDTO> selectVolList) {
+        System.out.println("========== 봉사 검색 결과 ===========");
+        if(selectVolList != null){
+        for(VolDTO selectVol : selectVolList) {
+            System.out.println(selectVol);
+            }
+        }
+    }
+
+    public void printVolList(List<VolDTO> volList) {
+        System.out.println("======== 봉사 리스트 =========");
+        for(VolDTO vol : volList){
+            System.out.println(vol);
+        }
+    }
 }
