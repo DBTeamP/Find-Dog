@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dbteam.xml.dog.DogMapper">
+
+    <!-- resultMap -->
+    <resultMap id="dogProfileResultMap" type="com.dbteam.common.dtopackage.DogDTO">
+        <id property="dogNum" column="dog_num"/>
+        <result property="dogName" column="dog_name"/>
+        <result property="dogKind" column="dog_kind"/>
+        <result property="dogAge" column="dog_age"/>
+    </resultMap>
+
+    <!-- 조회 -->
+    <select id="selectAllProfile" resultMap="dogProfileResultMap">
+        SELECT dog_num
+        , dog_name
+        , dog_kind
+        , dog_age
+        FROM dog
+    </select>
+
+    <!-- 추가 -->
+    <insert id="insertDogProfile" parameterType="com.dbteam.common.dtopackage.DogDTO" >
+        INSERT INTO dog (
+        dog_name
+        , dog_kind
+        , dog_age
+        )
+        VALUES (
+        #{ dogName }
+        , #{ dogKind }
+        , #{ dogAge }
+        )
+    </insert>
+
+    <!-- 수정 -->
+
+    <!-- 삭제 -->
+    <delete id="deleteDogProfile" parameterType="_int">
+        DELETE
+        FROM dog
+        WHERE dog_num = #{ dogNum }
+    </delete>
+
+    <!-- 검색 -->
+    <!-- DogDTO - dogNum, dogName, dogKind, dogAge, adminNum -->
+    <!--    <select id="searchDogKind" parameterType="com.dbteam.xml.dog.SearchDogKind" resultMap="dogProfileResultMap">-->
+    <!--        SELECT dog_num, dog_name, dog_kind, dog_age-->
+    <!--        FROM dog-->
+    <!--        WHERE dog_kind LIKE CONCAT('%', #{ value }, '%')-->
+
+    <!--    </select>-->
+    <select id="searchDogByKind" resultMap="dogProfileResultMap">
+        SELECT dog_num, dog_name, dog_kind, dog_age
+        FROM dog
+        WHERE dog_kind LIKE CONCAT('%', #{dogKind}, '%')
+    </select>
+
+</mapper>

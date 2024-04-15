@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbteam.xml.volunteer.VolMapper">
+    <resultMap id="volResultMap" type="com.dbteam.common.dtopackage.VolDTO">
+        <id property="volNum" column="vol_num"/>
+        <result property="volName" column="vol_name"/>
+        <result property="volTxt" column="vol_txt"/>
+        <result property="volDate" column="vol_date"/>
+        <result property="managerNum" column="manager_num"/>
+    </resultMap>
+
+
+    <delete
+            id="deleteVol" parameterType="com.dbteam.common.dtopackage.VolDTO">
+        DELETE
+        FROM volunteer
+        WHERE vol_num = #{ code }
+    </delete>
+
+    <insert id="insertVol" parameterType="com.dbteam.common.dtopackage.VolDTO">
+        INSERT INTO volunteer(
+            vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        )
+        VALUES(
+            #{ volName }
+            , #{ volTxt }
+            , #{ volDate }
+            , #{ managerNum }
+        )
+    </insert>
+
+    <select id="selectAllVol" parameterType="com.dbteam.common.dtopackage.VolDTO" resultMap="volResultMap">
+        SELECT vol_num
+            , vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        FROM volunteer
+    </select>
+
+    <select id="selectVolByTxt" parameterType="com.dbteam.common.dtopackage.VolDTO" resultMap="volResultMap">
+        SELECT vol_num
+            , vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        FROM volunteer
+        WHERE vol_name LIKE CONCAT('%', #{ volTxt }, '%')
+    </select>
+
+
+    <select id="selectVolByUserId" parameterType="com.dbteam.common.dtopackage.VolDTO" resultMap="volResultMap">
+        SELECT vol_num
+            , vol_name
+            , vol_txt
+            , vol_date
+            , manager_num
+        FROM volunteer
+        WHERE manager_num = #{ num }
+    </select>
+</mapper>
