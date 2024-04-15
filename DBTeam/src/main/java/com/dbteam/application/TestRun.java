@@ -240,8 +240,8 @@ public class TestRun {
                 case 4:
                     return;
                 case 9:
-                    System.out.println("봉사활동 관리 프로그램을 종료합니다."); return;
-                default: System.out.println("잘못된 관리 번호입니다."); break;
+                    System.out.println("봉사활동 관리 프로그램을 종료합니다. "); return;
+                default: System.out.println("잘못된 관리 번호입니다. "); break;
               }
 
           } while (true);
@@ -286,7 +286,7 @@ public class TestRun {
 
             private static Map<String, String> inputVolName() {
                 Scanner sc =new Scanner(System.in);
-                System.out.println("봉사활동 이름을 적어주세요 ");
+                System.out.println("봉사활동 이름을 적어주세요 : ");
                 String volName = sc.nextLine();
 
                 Map<String,String> parameter = new HashMap<>();
