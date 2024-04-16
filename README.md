@@ -1,10 +1,7 @@
-# FindDog project
+<div align = center> <img src = "https://github.com/DBTeamP/DBProject/assets/129252557/0631f090-892e-4e4d-856a-2279dc5a8b9f"><h1>Find Dog</h1> </div>
 
- # -Program Logo-
-  ![image](https://github.com/DBTeamP/DBProject/assets/129252557/0631f090-892e-4e4d-856a-2279dc5a8b9f)
-
-
-## 프로젝트 주제 : 유기견관련 활동들을 관리하는 프로그램
+## 프로젝트 주제 :
+### 유기견 관련 활동 관리 프로그램
 
 ## 1. 프로그램 기획
 
