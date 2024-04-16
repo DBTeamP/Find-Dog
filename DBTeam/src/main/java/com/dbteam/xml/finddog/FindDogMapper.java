@@ -11,6 +11,4 @@ public interface FindDogMapper {
     List<FindDogDTO> selectDogByName(String findName);
 
 
-    // List<FindDogDTO> findsearchDog(FindSearchDog findsearchDog);
-
 }

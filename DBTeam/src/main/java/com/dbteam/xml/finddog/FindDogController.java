@@ -15,15 +15,13 @@ public class FindDogController {
         findDogService = new FindDogService();
     }
 
-    // 전체 찾기
     public void selectAllDog() {
         List<FindDogDTO> fdogList = findDogService.selectAllDog();
-
 
         if (fdogList != null) {
             printResult.printDogList(fdogList);
         } else {
-            printResult.printErrorMessage("");
+            printResult.printErrorMessage("error");
         }
     }
 
@@ -35,11 +33,10 @@ public class FindDogController {
         fdog.setFindName(findName);
         fdog.setFindTxt(findTxt);
 
-        //여기 나중에 반드시 출력문구 느세요 지금 귀차늠 ㅋ넵
         if (findDogService.registerDog(fdog)) {
-            printResult.printSuccessMessage("");
+            printResult.printSuccessMessage("등록에 성공하셨습니다");
         } else {
-            printResult.printErrorMessage("");
+            printResult.printErrorMessage("error");
         }
     }
 
@@ -50,7 +47,6 @@ public class FindDogController {
         if (dogList != null) {
             printResult.printDogList(dogList);
         } else{
-            // 여기 나중에 printErrorMessage 클래스 만들어서 위에랑 비슷하게 해야함
             System.out.println("error");
         }
 

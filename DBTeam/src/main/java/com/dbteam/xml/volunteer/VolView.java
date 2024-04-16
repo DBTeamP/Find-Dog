@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static com.dbteam.xml.login.LoginView.getUserNum;
+
 public class VolView {
     public static void volPage(String rights){
         //권한에 따른 추가 삭제 제한 조정해야함
@@ -44,14 +46,14 @@ public class VolView {
                 case 2: volController.selectAllMenu(); break;
                 case 3: volController.selectVolByTxt(inputVolTxt()); break;
                 case 4:
-                    if(rights == "N") {
+                    if(rights == "Y") {
                         volController.deleteVol(inputVolNum());
                     } else{
                         System.out.println("권한이 없습니다.");
                     }
                     break;
                 case 5: volPView.volPPage(); break;
-//                case 6: volController.searchByUserNum(user.getUserNum()); break;
+                case 6: volController.searchByUserNum(getUserNum()); break;
                 case 7: return;
 
             }
