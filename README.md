@@ -29,7 +29,7 @@
 ## 2.채택한 개발 기술과 브랜치 전략
 
   ##   개발 환경
-- ### 1.프로그래밍 언어 및 프레임워크:
+- ### 1. 프로그래밍 언어 및 프레임워크:
   <img alt="" src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
  
@@ -79,7 +79,6 @@
 
 
 
-## 3. 프로젝트 구조
 ## 3. 프로젝트 구조
   ```
  
