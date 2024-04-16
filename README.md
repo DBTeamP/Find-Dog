@@ -58,7 +58,7 @@
     <img src="https://github.com/DBTeamP/DBProject/assets/135615995/470c2391-acbd-48b4-b410-5cd0afb1de96" alt="사진" width="30" height="30"> Chrome Remote Desktop
 </div>
 <div align="left">
-    <img src="https://github.com/DBTeamP/Find-Dog/assets/135615995/5e61746a-f6f2-4912-a31e-ca8b9755d8fe" alt="사진" width="30" height="30"> Google Meeting
+    <img src="https://github.com/DBTeamP/Find-Dog/assets/135615995/5e61746a-f6f2-4912-a31e-ca8b9755d8fe" alt="사진" width="30" height="30"> Google Meet
 </div>
 
  
