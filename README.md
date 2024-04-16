@@ -33,6 +33,8 @@
   <img src="https://img.shields.io/badge/IntelliJ-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
   <img src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+    <img src="https://img.shields.io/badge/MyBatis-0047AB?style=for-the-badge&logo=&logoColor=white">
+
  
 -  Java: 안정적이고 널리 사용되는 언어로 백엔드 개발에 적합
 - MyBatis Framework: Java와 데이터베이스 간의 상호작용을 용이하게 해주는 퍼시스턴스 프레임워크
