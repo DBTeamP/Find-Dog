@@ -20,11 +20,11 @@
  
   |팀원이름|구현기능|역할|깃허브ID|
   |----|-----|-----|-----|
-  |이재혁| DB 테이블 작성 , 봉사 페이지 옵션 구현  |팀장|@ ohdyo |
-  |오송은| 회원가입, 로그인 기능, 강아지 찾기 게시판 관리 |팀원|@ ddoddo1228|
-  |박세연| 강아지 찾기 게시판 관리,유기견 프로필 관리,유기견 게시판 관리 |팀원|@ se-3-yeon |
-  |박예나| 입양일지 관리 |팀원|@ a75372656|
-  |진윤재| 봉사활동 게시판 관리,  각 봉사활동 신청 인원 수 체크|팀원|@ Realyunjae|
+  |이재혁| DB 테이블 작성 , 봉사 페이지 옵션 구현  |팀장|@ohdyo |
+  |오송은| 회원가입, 로그인 기능, 강아지 찾기 게시판 관리 |팀원|@ddoddo1228|
+  |박세연| 강아지 찾기 게시판 관리,유기견 프로필 관리,유기견 게시판 관리 |팀원|@se-3-yeon |
+  |박예나| 입양일지 관리 |팀원|@a75372656|
+  |진윤재| 봉사활동 게시판 관리,  각 봉사활동 신청 인원 수 체크|팀원|@Realyunjae|
 
 ## 2.채택한 개발 기술과 브랜치 전략
 
@@ -44,11 +44,18 @@
   - <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 
 ### 협업 툴
+ <div align=left>
+ <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"></div>
+ <div align=left> <a href="https://www.notion.so/Find-Dog-2f081d1cdc6c46f0b27c2a591f2be77d?pvs=4">
+ <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white"></div>
+ </a><div align=left>
+ <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"></div>
+<div align="left">
+    <img src="https://github.com/DBTeamP/DBProject/assets/135615995/470c2391-acbd-48b4-b410-5cd0afb1de96" alt="사진" width="30" height="30">Chrome Remote Desktop
+</div>
 
-  - <img src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
-  - <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
-  - <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
  
+
  
 ##   개발 방향
 ### 1. 유기견에 대한 인식 개선 및 관심 유도: 
@@ -75,7 +82,11 @@
  ### 기능도 
   ![Untitled (2)](https://github.com/DBTeamP/DBProject/assets/129252557/4f4c716b-8de8-4285-8123-83e28b218a67)
 
+ ### 논리 ERD
+ ![최최종_erd](https://github.com/DBTeamP/DBProject/assets/135615995/bf7c0081-d673-4b6b-82d0-f446e4a73cc5)
+
  ### 물리 ERD
+ ![Untitled](https://github.com/DBTeamP/DBProject/assets/135615995/e4baeffe-450c-4221-a9ac-4cbbeda7f8e8)
 
    
 ## 4. 프로그램 기능 및 동작 방식
