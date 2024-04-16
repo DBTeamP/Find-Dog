@@ -22,4 +22,5 @@ public interface DogMapper {
     List<DogDTO> searchDogByKind(String dogKind);
 
 
+    int isDogExist(int dogNum);
 }

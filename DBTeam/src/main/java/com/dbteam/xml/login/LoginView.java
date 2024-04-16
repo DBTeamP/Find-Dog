@@ -12,7 +12,38 @@ import java.util.Scanner;
 
 public class LoginView {
 
-    private static String rights = "N"; //일단 Y로 초기호할게요
+    private static String rights = "N";
+    private static int userNum = 0;
+    public static int getUserNum(){
+        return userNum;
+    };
+    public static void welComeDog() {
+        Scanner sc = new Scanner(System.in);
+        LogInController logInController = new LogInController(); // LogInController 객체 생성
+        LoginView loginView = new LoginView();
+
+        do {
+            System.out.println("====== FINDING DOG =======");
+            System.out.println("1. 회원가입");
+            System.out.println("2. 로그인");
+            System.out.println("3. 종료");
+            System.out.print("번호를 입력해주세요 : ");
+
+            int no = sc.nextInt();
+            switch (no) {
+                case 1:
+                    logInController.registId(loginView.insertUser());
+                    break;
+                case 2:
+                    loginView.logInPage();
+                    break;
+                case 3:
+                    return;
+            }
+        } while (true);
+    }
+
+    public static Map<String, Object> parameter = new HashMap<>();
     public static Map<String, String> logInPage() {
         Scanner sc = new Scanner(System.in);
         LogInController logInController = new LogInController(); // LogInController 객체 생성
@@ -24,14 +55,19 @@ public class LoginView {
         int no = sc.nextInt();
         switch (no) {
             case 1:
-                if(logInController.lonInAdmin(logIn()) == "Y"){
+                logIn(parameter);
+                if(logInController.lonInAdmin(parameter) == "Y"){
                     rights = "Y";
+                    userNum = (int)parameter.get("userNum");
+
                     pageAdminMain();
                 }
                 break;
             case 2:
-                if(logInController.logInUser(logIn()) == "N"){
+                logIn(parameter);
+                if(logInController.logInUser(parameter) == "N"){
                     rights = "N";
+                    userNum = (int)parameter.get("userNum");
                     pageUserMain();
                 }
                 break;
@@ -43,15 +79,13 @@ public class LoginView {
     }
 
     //
-    private static Map<String, String> logIn() {
+    private static void logIn(Map<String, Object> parameter) {
         Scanner sc = new Scanner(System.in);
         System.out.println("아이디를 입력해주세요: ");
         String userId = sc.next();
 
-        Map<String, String> parameter = new HashMap<>();
         parameter.put("userId", userId);
 
-        return parameter;
     }
 
     //

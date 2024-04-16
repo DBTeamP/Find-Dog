@@ -97,4 +97,16 @@ public class DogService {
         }
     }
 
+    public boolean isDogExist(int dogNum){
+        SqlSession sqlSession = getSqlSession();
+
+        dogMapper = sqlSession.getMapper(DogMapper.class);
+        int result = dogMapper.isDogExist(dogNum);
+
+        boolean isDogExist = true;
+        if(result == 0) {
+            isDogExist = false;
+        }
+        return isDogExist;
+    }
 }

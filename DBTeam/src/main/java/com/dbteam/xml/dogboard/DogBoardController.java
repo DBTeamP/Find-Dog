@@ -1,6 +1,7 @@
 package com.dbteam.xml.dogboard;
 
 import com.dbteam.common.dtopackage.DogBoardDTO;
+import com.dbteam.xml.login.LoginView;
 
 import java.util.List;
 import java.util.Map;
@@ -57,6 +58,7 @@ public class DogBoardController {
     /* 삭제 */
     public void deleteDogBoard(Map<String, String> parameter) {
         int dogBoardNum = Integer.parseInt(parameter.get("dogBoardNum"));
+
 
         if (dogBoardService.deleteDogBoard(dogBoardNum)){
             printResult.printSuccessMessage("delete");
