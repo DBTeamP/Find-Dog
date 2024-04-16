@@ -37,7 +37,7 @@ public class PrintResult {
 
     /* 조회 */
     public void printDogBoardList(List<DogBoardDTO> dogBoardList){
-        System.out.println("========== 조회한 메뉴 리스트 ==========");
+        System.out.println("========== 조회한 리스트 ==========");
 
         for (DogBoardDTO dogboard : dogBoardList){
             System.out.println(dogboard);

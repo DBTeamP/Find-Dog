@@ -13,8 +13,8 @@ public class VolPView {
 
         do {
             System.out.println("====Volunteer_person=====");
-            System.out.println("1. 봉사 일정 추가 ");
-            System.out.println("2. 봉사 일정 삭제");
+            System.out.println("1. 봉사 신청 ");
+            System.out.println("2. 봉사 신청 취소");
             System.out.println("3. 각 봉사활동 신청 인원 수 체크 ");
             System.out.println("4. 이전 페이지로 이동 ");
             System.out.print("번호를 입력해주세요 : ");
