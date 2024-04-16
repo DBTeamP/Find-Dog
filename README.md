@@ -30,7 +30,8 @@
 
   ##   개발 환경
 - ### 1. 프로그래밍 언어 및 프레임워크:
-  <img alt="" src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
+  <img src="https://img.shields.io/badge/IntelliJ-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
+  <img src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
  
 -  Java: 안정적이고 널리 사용되는 언어로 백엔드 개발에 적합
