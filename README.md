@@ -30,9 +30,11 @@
 
   ##   개발 환경
 - ### 1.프로그래밍 언어 및 프레임워크:
--  프로그래밍 언어 및 프레임워크:
-- Java: 안정적이고 널리 사용되는 언어로 백엔드 개발에 적합합니다.
-- MyBatis Framework: Java와 데이터베이스 간의 상호작용을 용이하게 해주는 퍼시스턴스 프레임워크입니다.
+  <img alt="" src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+ 
+-  Java: 안정적이고 널리 사용되는 언어로 백엔드 개발에 적합
+- MyBatis Framework: Java와 데이터베이스 간의 상호작용을 용이하게 해주는 퍼시스턴스 프레임워크
 
 - ### 2. 개발 도구
   - JDK 버전: JDK 17을 사용하여 Java 애플리케이션을 개발.
@@ -58,15 +60,14 @@
 
  
 ##   개발 방향
-### 1. 유기견에 대한 인식 개선 및 관심 유도: 
-- "FindDog"은 유기견 보호 및 입양을 장려하고, 이에 대한 사회적 인식을 높이는 것을 목표로 합니다.
-
-### 2.정보의 접근성 향상:
-- 유기견 관련 정보(보호, 입양, 봉사활동 등)를 사용자가 쉽게 찾고 접근할 수 있도록 합니다.
-
-### 3.커뮤니티 기능 강화: 
-- 사용자 간의 소통과 정보 공유를 장려하기 위해 커뮤니티 기능을 강화합니다. 이는 게시판, 댓글 기능, 유기견 찾기 서비스 등을 포함할 수 있습니다.
-
+- 유기견 관련 활동들을 관리하는 프로그램인 "FindDog"은 유기견 보호 및 입양을 장려하고,
+-  이에 대한 인식을 높이며, 유기견에 대한 관심을 유도하는 것을 목표로 합니다. 이를 위해 다음과 같은 개발 방향을 설정했습니다.
+### 1.유기견에 대한 인식 개선 및 관심 유도:
+-  "FindDog"은 유기견 보호 및 입양 구조를 장려하고, 이에 대한 사회적 인식을 높이는 것을 목표로 함
+### 2.정보의 접근성 향상
+-  유기견에 관한 다양한 정보(찾기,구조 , 입양, 봉사활동 등)를 쉽게 찾고 접근할 수 있도록 했습니다.
+### 3.커뮤니티 기능 강화
+- 사용자 간의 소통을 장려하기 위한 커뮤니티 기능(게시판, 댓글 , 지역정보 등)을 강화합니다. 
 
 
 
@@ -79,6 +80,94 @@
 
 
 ## 3. 프로젝트 구조
+## 3. 프로젝트 구조
+  ```
+ 
+ main
+    ├── java
+    │   └── com
+    │       └── dbteam
+    │           ├── application
+    │           │   ├── Application.java
+    │           │   └── testRun.java
+    │           ├── common
+    │           │   ├── Template.java
+    │           │   └── dtopackage
+    │           │       ├── AdoptionDTO.java
+    │           │       ├── CountDTO.java
+    │           │       ├── DogBoardDTO.java
+    │           │       ├── DogDTO.java
+    │           │       ├── FindDogDTO.java
+    │           │       ├── RegionDTO.java
+    │           │       ├── UsersDTO.java
+    │           │       ├── VolDTO.java
+    │           │       └── VolPDTO.java
+    │           └── xml
+    │               ├── adoption
+    │               │   ├── AdoptionController.java
+    │               │   ├── AdoptionMapper.java
+    │               │   ├── AdoptionService.java
+    │               │   ├── AdoptionView.java
+    │               │   └── PrintResult.java
+    │               ├── dog
+    │               │   ├── DogController.java
+    │               │   ├── DogMapper.java
+    │               │   ├── DogService.java
+    │               │   ├── DogView.java
+    │               │   └── PrintResult.java
+    │               ├── dogboard
+    │               │   ├── DogBoardController.java
+    │               │   ├── DogBoardMapper.java
+    │               │   ├── DogBoardService.java
+    │               │   ├── DogBoardView.java
+    │               │   └── PrintResult.java
+    │               ├── finddog
+    │               │   ├── FindDogController.java
+    │               │   ├── FindDogMapper.java
+    │               │   ├── FindDogService.java
+    │               │   ├── FindDogView.java
+    │               │   └── PrintResult.java
+    │               ├── login
+    │               │   ├── LogInController.java
+    │               │   ├── LogInService.java
+    │               │   ├── LoginMapper.java
+    │               │   ├── LoginView.java
+    │               │   └── PrintResult.java
+    │               ├── volunteer
+    │               │   ├── PrintResult.java
+    │               │   ├── VolController.java
+    │               │   ├── VolMapper.java
+    │               │   ├── VolService.java
+    │               │   └── VolView.java
+    │               └── volunteer_person
+    │                   ├── PrintResult.java
+    │                   ├── VolPController.java
+    │                   ├── VolPMapper.java
+    │                   ├── VolPService.java
+    │                   └── VolPView.java
+    └── resources
+        ├── com
+        │   └── dbteam
+        │       ├── test.xml
+        │       └── xml
+        │           ├── adoption
+        │           │   └── AdoptionMapper.xml
+        │           ├── dog
+        │           │   └── DogMapper.xml
+        │           ├── dogboard
+        │           │   └── DogBoardMapper.xml
+        │           ├── finddog
+        │           │   └── FindDogMapper.xml
+        │           ├── login
+        │           │   └── LoginMapper.xml
+        │           ├── volunteer
+        │           │   └── VolMapper.xml
+        │           └── volunteer_person
+        │               └── VolPMapper.xml
+        └── config
+            ├── connection-info.properties
+            └── mybatis-config.xml
+ ```
  ### 기능도 
  ![dsds](https://github.com/DBTeamP/DBProject/assets/135615995/0c9bef98-e25f-4982-8313-65ad4dde4a9d)
 
@@ -111,8 +200,11 @@
 - 내가 작석한 글 보기
 - 봉사활동명으로 각 인원 수 체크하고 그에 대한 추가, 삭제
 #### 5.입양 일지
-- 입양관련 제목,입양 강아지 내용, 입양자정보 입력
-- 입양 추가, 삭제
+- 전체 조회 : 모든 입양일지를 한눈에 확인
+- 추가 : 새로운 입양일지를 추가(일지제목, 일지내용, 유저번호)
+- 삭제 : 작성한 입양일지를 입양일지 번호를 입력해서 삭제
+- 제목으로 검색 : 입양일지 제목으로 검색해서 확인
+
 
 
 ## 5. 작업 관리
@@ -130,10 +222,13 @@
 - 유기견 프로필 관리
 - 강아지 찾기 추가,삭제,검색기능
 #### 팀원 박예나
-- 입양일지 조회, 추가, 삭제기능 
+- 입양 게시판
+- 입양 일지 조회, 추가, 삭제기능 
+
 #### 팀원 진윤재
-- 보호센터 봉사활동  추가 삭제 기능
--  봉사 신청 인원수 조회
+-  봉사활동 명 입력 및 인원수 체크+(중복 검색 기능)
+-  봉사활동 추가 및 삭제
+
 
 ###  작업관리
 
