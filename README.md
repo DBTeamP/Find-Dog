@@ -42,8 +42,10 @@
 
 ### 버전 및 이슈관리
   -  Github, Github Issues, Github Project
-  -  <img alt="" src="https://img.shields.io/badge/IDE-java-007396?style=flat-square&logo=java&logoColor=white"/>
-  - <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+   <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+  
 
 ### 협업 툴
  <div align=left>
